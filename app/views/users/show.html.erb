@@ -1,0 +1,46 @@
+<div class="user_show_page">
+	<div class="user_panel">
+		<div class="user_picture" title="<%= @user.username %> Gravatar">
+			<%= gravatar_for @user, :size => 120 %>
+		</div>
+		<div class="user_info">
+			<% if current_user.profiles.blank? %>
+			<ul>
+				<li><div class="show_username">
+					<%= @user.username %>
+					</div>
+				</li>
+				<li><%= link_to "Expertise", new_profile_path(@user) %></li>
+				<li><%= link_to "Type", new_profile_path(@user) %></li>
+				<li><div class="show_time">
+					Member Since: <%= (@user.created_at).to_date.to_s(:long) %>
+					</div>
+				</li>
+			</ul>
+			<% else %>
+			<ul>
+				<li><div class="show_username">
+					<%= @user.username %>
+					</div>
+				</li>
+				<% @user.profiles.each do |p| %>
+					<li><%= link_to "#{p.expertise}", edit_profile_path(@user) %></li>
+					<li><%= link_to "#{p.type}", edit_profile_path(@user) %></li>
+				<% end %>
+				<li><div class="show_time">
+					Member Since: <%= (@user.created_at).to_date.to_s(:long) %>
+					</div>
+				</li>
+			</ul>
+			<% end %>
+		</div>
+		<div class="user_stats">
+			<h2>Stats:</h2>
+			<ul>
+				<li><%= link_to "Is following 0 people", '#' %></li>
+				<li><%= link_to "Has posted #{pluralize(@user.topics.count, "topic")}", '#' %></li>
+				<li><%= link_to "Has commented on 0 topics", '#' %></li>
+			</ul>
+		</div>
+	</div>
+</div>

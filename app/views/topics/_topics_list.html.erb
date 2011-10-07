@@ -1,0 +1,24 @@
+<div class="topic_index">
+	<h2><%= @heading %> <%= link_to "(What is this?)", '#', :id => "what_is_this" %></h2>
+	<%= link_to "Start A New Topic", '#', :id => "new_topic", :class => "primary button" %>
+	<div class="threads">
+		<hr \>
+	<ul>
+		<% @topics.each do |topic| %>
+			<li>
+				<div class="gravatar">
+				<%= link_to (gravatar_for topic.user, :size => 45), user_path(topic.user) %>
+				</div>
+				<div class="topics_user">
+				From :<%= link_to topic.user.username %><br \>
+				</div>
+				<div class="topics_content">
+				<%= topic.content %><br \>
+				<div class="topics_time">
+				<%= link_to "Threads(#{topic.comments.count})", topic_path(topic) %>
+				Posted <%= time_ago_in_words(topic.created_at) %> ago.
+				</div>
+			</li>
+		<% end %>
+	</ul>
+	</div>

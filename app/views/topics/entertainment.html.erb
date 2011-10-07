@@ -1,0 +1,10 @@
+	<%= render 'topics_list' %>
+	<div class="topic_form" title="New Topic">
+	<h3>Start A Convo About Entertainment</h3>
+	<% form_for(@topic, @topic.category = "Entertainment") do |f| %>
+		<%= f.hidden_field :category %>
+		<%= f.text_area :content %>
+		<%= f.submit "Post" %>
+	<% end %>
+	</div>
+</div>
