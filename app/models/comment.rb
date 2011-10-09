@@ -4,6 +4,6 @@
 # t.string   "content"
 #
 class Comment < ActiveRecord::Base
-    attr_accessible :contnet
+    attr_accessible :content
     belongs_to :topic
 end

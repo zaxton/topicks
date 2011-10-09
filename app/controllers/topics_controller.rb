@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
         end
     end
     
-    def show
+    def index
     end
     
     def entertainment
@@ -22,6 +22,7 @@ class TopicsController < ApplicationController
         @topic = Topic.new
         @topics = Topic.where('category = ?', "Entertainment").all
         @heading = "Welcome To Topicks Entertainment"
+        @tip = "Post Anything You Feel Relates to Entertainment"
     end
     
     def events
@@ -29,6 +30,7 @@ class TopicsController < ApplicationController
         @topic = Topic.new
         @topics = Topic.where('category = ?', "Events").all
         @heading = "Welcome To Topicks Events"
+        @tip = "Post Anything You Feel Relates to Events"
     end
     
     def news
@@ -36,5 +38,6 @@ class TopicsController < ApplicationController
         @topic = Topic.new
         @topics = Topic.where('category = ?', "News").all
         @heading = "Welcome To Topicks News"
+        @tip = "Post Anything You Feel Relates to News"
     end
 end

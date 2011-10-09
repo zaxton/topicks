@@ -4,6 +4,7 @@ class PagesController < ApplicationController
         @user = User.new
         if signed_in?
             @title = "Home"
+            @posts = current_user.topics.limit(10)
         end
     end
     

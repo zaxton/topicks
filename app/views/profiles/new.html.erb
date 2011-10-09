@@ -7,8 +7,8 @@
 				<%= f.label :expertise, "Expertise:" %><br \>
 				<%= f.text_field :expertise %>
 			</div><br \>
-				<%= f.label :type, "Your type:"%><br \>
-				<%= f.select :type, [["Rational", "rational"], ["Artisan", "artisan"], ["Idealist", "idealist"], ["Guardian", "guardian"]] %>
+				<%= f.label :kind, "Your type:"%><br \>
+				<%= f.select :kind, [["Rational", "rational"], ["Artisan", "artisan"], ["Idealist", "idealist"], ["Guardian", "guardian"]] %>
 				<%= f.submit "Post", :class => 'button' %>
 			<% end %>
 	</div>

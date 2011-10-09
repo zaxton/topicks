@@ -1,6 +1,6 @@
 <%= form_for(:session, :url => sessions_path, :method => 'post')  do |f| %>
 <div class="home_signin_fields">
-	<%= f.text_field :email, :placeholder => "Email" %> <%= f.password_field :password, :placeholder => "Password" %>
+	<%= f.email_field :email, :placeholder => "Email" %> <%= f.password_field :password, :placeholder => "Password" %>
 </div>
 <div id="remem_me">	
 <%= check_box_tag :remember_me, 1, params[:remember_me] %>

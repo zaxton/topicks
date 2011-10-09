@@ -42,4 +42,12 @@ module ApplicationHelper
     def movie_art
         movie_art = image_tag("clapboard.png", :alt => "Entertainment", :size => "100x100")
     end 
+    
+    def news_art
+        news_art = image_tag("newspaper.gif", :alt => "News", :size => "100x100")
+    end
+    
+    def events_art
+        events_art = image_tag("events-icon.gif", :alt => "Events", :size => "100x100")
+    end 
 end

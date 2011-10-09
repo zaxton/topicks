@@ -1,4 +1,8 @@
+<% content_for :scripts do %>
+		<%= javascript_include_tag "jquery.vticker.js" %>
+<% end %>
 <div class="home_signed_in">
+	<h2>Welcome to your Dash</h2>
 	<div class="topics_home_panel">
 		<a href="<%= entertainment_path %>">
 			<div class="bubble_one">
@@ -9,11 +13,44 @@
 		</a>
 		<a href="<%= news_path %>">
 			<div class="bubble_two">
+				<%= news_art %>
+				<h2>News</h2>
+				<h3><em>View the Latest trends in News</em></h3>
 			</div>
 		</a>
 		<a href="<%= events_path %>">
 			<div class="bubble_three">
+				<%= events_art %>
+				<h2>Events</h2>
+				<h3><em>View the Latest trends in Events</em></h3>
 			</div>
 		</a>
 	</div>
+	<div class="your_posts">
+		<ul>
+		<% @posts.each do |post| %>
+				<li>
+					<div class="gravatar">
+						<%= link_to (gravatar_for post.user, :size => 45), current_user %>
+					</div>
+					<div class="topics_content">
+						<%= post.content %><br \>
+					<div class="topics_time">
+						<%= link_to "Threads(#{post.comments.count})", topic_comments_path(post) %>
+						Posted <%= time_ago_in_words(post.created_at) %> ago.
+					</div>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.your_posts').vTicker({ 
+				speed: 1000,
+				pause: 3000,
+				animation: 'fade',
+				showItems: 5
+			});
+		});
+	</script>
 </div>

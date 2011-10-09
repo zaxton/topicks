@@ -3,11 +3,14 @@ Topik::Application.routes.draw do
     get 'sessions/new'
     
     resources :sessions
-    resources :users
-    resources :topics
-    resources :comments 
+    resources :users 
     resources :profiles
     resources :bookmarks
+    resources :relationships
+    
+    resources :topics do
+        resources :comments
+    end
     
     match '/entertainment', :to => 'topics#entertainment'
     match '/events', :to => 'topics#events'

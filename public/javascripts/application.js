@@ -9,6 +9,7 @@ $(function() {
 	});
 });
 
+
 $.fx.speeds._default = 1000;
 $(function() {
 	$( ".topic_form" ).dialog({
@@ -23,3 +24,19 @@ $( "#new_topic" ).click(function() {
 	return false;
 	});
 });
+
+
+$.fx.speeds._default = 1000;
+	$(function() {
+		$( ".new_bookmark_form" ).dialog({
+			autoOpen: false,
+			modal: true,
+			height:200,
+			width:500
+		});
+
+		$( "#new_bookmark_button" ).click(function() {
+			$( ".new_bookmark_form" ).dialog( "open" );
+			return false;
+		});
+	});

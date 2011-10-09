@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007071334) do
+ActiveRecord::Schema.define(:version => 20111008052315) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -29,10 +29,21 @@ ActiveRecord::Schema.define(:version => 20111007071334) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["id"], :name => "comment_select"
+  add_index "comments", ["topic_id"], :name => "comment_topic"
+  add_index "comments", ["user_id"], :name => "comment_user"
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "expertise"
-    t.string   "type"
+    t.string   "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20111007071334) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "topics", ["id"], :name => "topic_id"
+  add_index "topics", ["user_id"], :name => "topic_user"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -57,5 +71,7 @@ ActiveRecord::Schema.define(:version => 20111007071334) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["id"], :name => "user_index"
 
 end

@@ -1,5 +1,8 @@
 <div class="topic_index">
-	<h2><%= @heading %> <%= link_to "(What is this?)", '#', :id => "what_is_this" %></h2>
+	<h2><%= @heading %> <%= link_to '#', :id => "what_is_this", :class => "tip_trigger" do %>
+		<%= "(What is this?)" %>
+		<span class="tip"><%= @tip %></span>
+	<% end %></h2>
 	<%= link_to "Start A New Topic", '#', :id => "new_topic", :class => "primary button" %>
 	<div class="threads">
 		<hr \>
@@ -10,15 +13,45 @@
 				<%= link_to (gravatar_for topic.user, :size => 45), user_path(topic.user) %>
 				</div>
 				<div class="topics_user">
-				From :<%= link_to topic.user.username %><br \>
+				From :<%= link_to "#{topic.user.username}", user_path(topic.user)  %><br \>
 				</div>
 				<div class="topics_content">
 				<%= topic.content %><br \>
 				<div class="topics_time">
-				<%= link_to "Threads(#{topic.comments.count})", topic_path(topic) %>
+				<%= link_to "Threads(#{topic.comments.count})", topic_comments_path(topic) %>
 				Posted <%= time_ago_in_words(topic.created_at) %> ago.
 				</div>
 			</li>
 		<% end %>
 	</ul>
-	</div>
+	<script type="text/javascript">
+$(document).ready(function() {
+	var tip;
+	$(".tip_trigger").hover(function(){
+		tip = $(this).find('.tip').remove();
+		$('body').append(tip);
+		tip.show();
+	}, function() {
+		tip.hide().remove(); 
+		$(this).append(tip); 
+	}).mousemove(function(e) {
+	var mousex = e.pageX + 20; 
+	var mousey = e.pageY + 20; 
+	var tipWidth = tip.width(); 
+	var tipHeight = tip.height(); 
+	
+	var tipVisX = $(window).width() - (mousex + tipWidth);
+	var tipVisY = $(window).height() - (mousey + tipHeight);
+
+	if ( tipVisX < 20 ) { 
+		mousex = e.pageX - tipWidth - 20;
+		$(this).find('.tip').css({ top: mousey, left: mousex });
+	} if ( tipVisY < 20 ) { 
+		mousey = e.pageY - tipHeight - 20;
+		tip.css({ top: mousey, left: mousex });
+	} else {
+		tip.css({ top: mousey, left: mousex });
+	}
+	});
+});
+	</script>	</div>

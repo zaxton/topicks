@@ -1,0 +1,34 @@
+<div class="comments_show">
+	<h2>Comment Steam</h2>
+	<div class="topic_show_area">
+		<%= gravatar_for @topic.user, :size => 45 %>
+		<%= link_to "#{@topic.user.username}", user_path(@topic.user) %><br \>
+		<div class="tshowcomment"><%= @topic.content %></div><br \>
+		<div class="topic_show_time">
+		Posted <%= time_ago_in_words(@topic.created_at) %> ago.
+		</div>
+	</div>
+	<div class="all_comments">
+		<% unless @comments.empty? %>
+		<%  @comments.each do |comment| %>
+			<div class="comment">
+				<ul>
+					<li>
+			  <div class="created_at">On <%= comment.created_at.strftime("%B %d, %Y") %></div>
+			  	<div class="content"><%= comment.content  %></div>
+				<div class="picture"><%= gravatar_for comment.topic.user %></div>
+				<div class="c_user"><%= link_to "#{comment.topic.user.username}", user_path(comment.topic.user.username) %></div>
+				</li>
+				</ul>
+			</div>
+		<% end %>
+		<% end %>
+	</div>
+	<div class="new_comment">
+		<%= form_for([@topic, @comment]) do |f| %>
+			<%= f.text_area :content, :rows => 8 %>
+			<%= f.submit "Post", :class => "button" %>
+		<% end %>
+	</div>
+	
+</div>

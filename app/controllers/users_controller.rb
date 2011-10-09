@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @title = "#{@user.username}"
+        @bookmark = Bookmark.new
+        @bookmarks = @user.bookmarks.limit(5)
+        @comments = Comment.where('user_id = ?', @user.id)
     end
     
     def index
