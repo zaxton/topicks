@@ -2,7 +2,7 @@
 		<%= javascript_include_tag "jquery.vticker.js" %>
 <% end %>
 <div class="home_signed_in">
-	<h2>Welcome to your Dash</h2>
+	<h2><em>Welcome to your Dash...</em></h2>
 	<div class="topics_home_panel">
 		<a href="<%= entertainment_path %>">
 			<div class="bubble_one">
@@ -26,7 +26,8 @@
 			</div>
 		</a>
 	</div>
-	<div class="your_posts">
+	<h3><em>Some Of Your Topics...</em></h3>
+	<div class="your_posts">	
 		<ul>
 		<% @posts.each do |post| %>
 				<li>

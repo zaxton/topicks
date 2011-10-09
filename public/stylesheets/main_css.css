@@ -223,9 +223,19 @@ footer span{
 	height:800px;
 	width:100%;
 }
+.home_signed_in h2{
+	text-indent:20px;
+	color:gray;
+}
+.home_signed_in h3{
+	position:absolute;
+	left:750px;
+	top:60px;
+	color:#FFD6AD;
+}
 .topics_home_panel{
 	position:absolute;
-	top:100px;
+	top:120px;
 	height:650px;
 	width:600px;
 }
@@ -326,6 +336,13 @@ footer span{
 	border-width:2px;
 	border-color:silver;
 	border-left-style:solid;
+}
+.your_posts li{
+	background:#FFFFF8;
+	width:400px;
+	border-bottom-width:1px;
+	border-bottom-color:silver;
+	border-bottom-style:solid;
 }
 
 /* For Topics Index */
