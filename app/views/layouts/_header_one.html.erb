@@ -1,47 +1,7 @@
 <div class="header_one">
 	<%= link_to site, root_path %>
-	
-	<ul id="site_nav">
-		<li><%= link_to "#{current_user.username}", current_user %></li>
-	    <li><center><%= link_to "Home", root_path %></center></li>
-	    <li><a href="#">Account</a>
-	        <ul>
-	            <li><%= link_to "Help", help_path %></li>
-				<% if current_user.profiles.blank? %>
-	            <li><%= link_to "Settings", new_profile_path(current_user) %></li>
-				<% else %>
-				<li><%= link_to "Settings", edit_profile_path(current_user) %></li>
-				<% end %>
-				<li><%= link_to "Account", edit_user_path(current_user) %></li>
-	            <li><%= link_to "Log out", signout_path %></li>
-	        </ul>
-	    </li>
-	</ul>
-	<script>
-		var timeout    = 500;
-		var closetimer = 0;
-		var ddmenuitem = 0;
 
-		function site_nav_open()
-		{  site_nav_canceltimer();
-		   site_nav_close();
-		   ddmenuitem = $(this).find('ul').css('visibility', 'visible');}
-
-		function site_nav_close()
-		{  if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
-
-		function site_nav_timer()
-		{  closetimer = window.setTimeout(site_nav_close, timeout);}
-
-		function site_nav_canceltimer()
-		{  if(closetimer)
-		   {  window.clearTimeout(closetimer);
-		      closetimer = null;}}
-
-		$(document).ready(function()
-		{  $('#site_nav > li').bind('mouseover', site_nav_open)
-		   $('#site_nav > li').bind('mouseout',  site_nav_timer)});
-
-		document.onclick = site_nav_close;
-	</script>
+	<div class="search_top">
+		<%= render 'layouts/top_searchbar' %>
+	</div>
 </div>

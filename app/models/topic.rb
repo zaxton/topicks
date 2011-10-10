@@ -11,4 +11,12 @@ class Topic < ActiveRecord::Base
     accepts_nested_attributes_for :comments,
         :reject_if => proc { |attributes| attributes.blank? }, 
         :allow_destroy => true
+        
+    def self.search(search)
+        if search
+            where('category LIKE ?', "%#{search}%")
+        else
+            scoped
+        end
+    end
 end

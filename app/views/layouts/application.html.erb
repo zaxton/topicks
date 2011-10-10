@@ -30,7 +30,11 @@
 		<%= yield %>
 	 </div>
      <%= render 'layouts/footer' %>
-	 
+
+	 <% if signed_in? %>
+	 	<%= render 'layouts/bottom_header' %>
+	 <% end %>
+	
 	</div>
   </body>
 </html>

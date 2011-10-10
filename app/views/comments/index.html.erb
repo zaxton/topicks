@@ -1,5 +1,6 @@
 <div class="comments_show">
-	<h2>Comment Steam</h2>
+	<div class="comment_container">
+	<h2>Conversation</h2>
 	<div class="topic_show_area">
 		<%= gravatar_for @topic.user, :size => 45 %>
 		<%= link_to "#{@topic.user.username}", user_path(@topic.user) %><br \>
@@ -10,25 +11,27 @@
 	</div>
 	<div class="all_comments">
 		<% unless @comments.empty? %>
+		<ul>
 		<%  @comments.each do |comment| %>
 			<div class="comment">
-				<ul>
-					<li>
+			<li>
 			  <div class="created_at">On <%= comment.created_at.strftime("%B %d, %Y") %></div>
 			  	<div class="content"><%= comment.content  %></div>
 				<div class="picture"><%= gravatar_for comment.topic.user %></div>
-				<div class="c_user"><%= link_to "#{comment.topic.user.username}", user_path(comment.topic.user.username) %></div>
-				</li>
-				</ul>
+				<div class="c_user"><%= link_to "#{comment.topic.user.username}", user_path(comment.topic.user) %></div>
+			</li>
 			</div>
 		<% end %>
+		</ul>
 		<% end %>
+		<%= will_paginate @comments %>
 	</div>
 	<div class="new_comment">
+		<h3>Respond</h3>
 		<%= form_for([@topic, @comment]) do |f| %>
 			<%= f.text_area :content, :rows => 8 %>
 			<%= f.submit "Post", :class => "button" %>
 		<% end %>
 	</div>
-	
+	</div>
 </div>

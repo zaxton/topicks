@@ -15,6 +15,8 @@ class TopicsController < ApplicationController
     end
     
     def index
+        @title = "All Topics"
+        @topics = Topic.search(params[:search]).paginate(:per_page => 33, :page => params[:page])
     end
     
     def entertainment

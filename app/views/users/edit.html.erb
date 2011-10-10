@@ -1,0 +1,26 @@
+<div class="edit_user">
+	<h2>[<em>Update You</em>]</h2>
+	<div class="session_form">
+	<%= form_for(@user, :validate => true) do |f| %>
+	<div class="session_fields">
+		<%= f.text_field :username, :placeholder => "Username*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.text_field :name, :placeholder => "Name*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.text_field :email, :placeholder => "Email*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.password_field :password, :placeholder => "Password*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.password_field :password_confirmation, :placeholder => "Confirm*" %>
+	</div><br \>
+	<div class="session_fields">
+		<input class="text" id="user_birthday" name="user[birthday]" placeholder = "Birthday*">
+	</div><br \>
+		<%= f.submit "Update!", :class => "big primary button" %>
+	<% end %>
+	</div>
+</div>

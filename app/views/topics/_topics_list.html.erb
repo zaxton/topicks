@@ -1,3 +1,6 @@
+<% content_for :scripts do %>
+		<%= javascript_include_tag "jquery.vticker.js" %>
+<% end %>
 <div class="topic_index">
 	<h2><%= @heading %> <%= link_to '#', :id => "what_is_this", :class => "tip_trigger" do %>
 		<%= "(What is this?)" %>
@@ -55,3 +58,31 @@ $(document).ready(function() {
 	});
 });
 	</script>	</div>
+	<div class="your_posts">
+			<ul>
+			<% @topics.each do |post| %>
+					<li>
+						<div class="gravatar">
+							<%= link_to (gravatar_for post.user, :size => 45), current_user %>
+						</div>
+						<div class="topics_content">
+							<%= post.content %><br \>
+						<div class="topics_time">
+							<%= link_to "Threads(#{post.comments.count})", topic_comments_path(post) %>
+							Posted <%= time_ago_in_words(post.created_at) %> ago.
+						</div>
+					</li>
+				<% end %>
+			</ul>
+	
+		<script type="text/javascript">
+			$(function(){
+				$('.your_posts').vTicker({ 
+					speed: 1000,
+					pause: 3000,
+					animation: 'fade',
+					showItems: 5
+				});
+			});
+		</script>
+	</div>

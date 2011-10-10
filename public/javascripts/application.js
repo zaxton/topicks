@@ -10,20 +10,7 @@ $(function() {
 });
 
 
-$.fx.speeds._default = 1000;
-$(function() {
-	$( ".topic_form" ).dialog({
-		autoOpen: false,
-		modal: true,
-		height:400,
-		width:600
-});
 
-$( "#new_topic" ).click(function() {
-	$( ".topic_form" ).dialog( "open" );
-	return false;
-	});
-});
 
 
 $.fx.speeds._default = 1000;
@@ -40,3 +27,79 @@ $.fx.speeds._default = 1000;
 			return false;
 		});
 	});
+	
+	$(function(){
+			$(".comment li").hover(function(){
+				$(this).css({
+					"background-color":"#F5F5F5",
+					"cursor":"pointer"
+				});
+			}, function(){
+				var resetCSS = {
+					"background-color":"",
+					"cursor":""
+				}
+				$(this).css(resetCSS);
+			});
+		});
+		
+		
+		var popupStatus = 0;
+
+		function loadPopup(){
+		if(popupStatus==0){
+			$(".backgroundPopup").css({
+				"opacity": "0.7"
+			});
+			$(".backgroundPopup").fadeIn("fast");
+			$(".popupPicture").fadeIn("fast");
+			popupStatus = 1;
+			}
+		}
+
+		function disablePopup(){
+		if(popupStatus==1){
+			$(".backgroundPopup").fadeOut("slow");
+			$(".popupPicture").fadeOut("slow");
+			popupStatus = 0;
+			}
+		}
+
+		function centerPopup(){
+			var windowWidth = document.documentElement.clientWidth;
+			var windowHeight = document.documentElement.clientHeight;
+			var popupHeight = $(".popupPicture").height();
+			var popupWidth = $(".popupPicture").width();
+			$(".popupPicture").css({
+				"position": "absolute",
+				"top": windowHeight/2-popupHeight/2,
+				"left": windowWidth/2-popupWidth/2
+			});
+
+			$(".backgroundPopup").css({
+				"height": windowHeight
+			});
+
+		}
+
+		$(function(){
+			$("#new_topic").click(function(){
+				centerPopup();
+				loadPopup();
+			});
+
+			$(".popupContactClose").click(function(){
+				disablePopup();
+			});
+
+			$(".backgroundPopup").click(function(){
+				disablePopup();
+			});
+
+			$(document).keypress(function(e){
+				if(e.keyCode==27 && popupStatus==1){
+					disablePopup();
+				}
+			});
+
+		});

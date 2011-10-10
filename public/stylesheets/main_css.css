@@ -121,6 +121,56 @@ footer span{
 #right_footer a:hover{
 	text-decoration:underline;
 }
+#nav_menu_wrapper { 
+	height:30px; 
+	width:100%; 
+	bottom:0px;
+	position:fixed;
+	overflow:hidden;
+}
+#nav_menu_wrapper .nav_menu {
+	height:30px; 
+	width:900px; 
+	margin-left:auto;
+	margin-right:auto;	
+	background-color:#EEEEEE;
+	border:#666666 solid 1px;
+}
+#nav_menu_wrapper .nav_menu ul {
+	margin-top:5px;
+	list-style:none;
+}
+#nav_menu_wrapper .nav_menu li {
+	display:inline;
+}
+#nav_menu_wrapper .nav_menu li a {
+	padding-top:3px;
+	padding-bottom:5px;
+	padding-left:20px;			
+	padding-right:20px;
+}
+#nav_menu_wrapper .nav_menu a:link, #nav_menu_wrapper .nav_menu a:visited {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+	text-decoration:none;
+	background-color:#EEEEEE;
+}
+#nav_menu_wrapper .nav_menu a:hover {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFFFFF;
+	text-decoration:none;
+	background-color:#4169E1;
+}
+.search_top{
+	position:absolute;
+	top:5px;
+	right:20px;
+}
+#search_bar{
+	width:250px;
+}
 
 /* For Home Page */
 
@@ -444,6 +494,56 @@ footer span{
 	height:2500px;
 	width:100%;
 }
+.comment_container{
+	margin-left:auto;
+	margin-right:auto;
+	width:550px;
+	height:500px;
+	border-left-style:solid;
+	border-right-style:solid;
+	border-color:silver;
+	border-width:2px;
+	-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+	background:white;
+}
+.comment_container h2{  
+    position: relative;  
+    width: 50%;  
+    font-size: 1.5em;  
+    font-weight: bold;  
+    padding: 6px 20px 6px 70px;  
+    margin: 30px 10px 10px -70px;  
+    color: white;  
+    background-color: black;  
+    text-shadow: 0px 1px 2px #bbb;  
+    -webkit-box-shadow: 0px 2px 4px #888;  
+    -moz-box-shadow: 0px 2px 4px #888;  
+    box-shadow: 0px 2px 4px #888;  
+	left:46px;
+	bottom:20px;
+}  
+.comment_container h2:after{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    left: 0px;  
+    top: 100%;  
+    border-width: 5px 10px;  
+    border-style: solid;  
+    border-color: #666 #666 transparent transparent;  
+}
+.comment_container h2:before{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    right: -2px;  
+    top: 0px;  
+    border-color: transparent #fff transparent transparent;  
+}
 .topic_show_area{
 	width:500px;
 	height:100px;
@@ -480,15 +580,18 @@ footer span{
 	margin-right:auto;
 	height:85px;
 	width:500px;
-	background:#E7EEF1;
+}
+.new_comment h3{
+	color:#666;
+	font-style:italic;
 }
 .new_comment textarea{
-	height:50px;
-	width:350px;
-	font-size:15px;
+	height:35px;
+	width:400px;
+	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
 }
-.comment ul{
+.all_comments ul{
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -497,19 +600,21 @@ footer span{
 	border-bottom-style:solid;
 	border-bottom-width:1px;
 	list-style:none;
-	background:#E7EEF1;
+	
 }
 .content{
 	position:relative;
+	top:10px;
 	left:60px;
 }
 .picture{
 	position:relative;
 	left:3px;
-	bottom:55px;
+	bottom:40px;
 }
 .c_user a{
 	position:relative;
+	bottom:80px;
 	left:60px;
 	color:#4169E1;
 	text-decoration:none;
@@ -682,6 +787,78 @@ footer span{
 	height:25px;
 	width:300px;
 	font-size:20px;
+}
+
+/* For Edit User */
+
+.edit_user{
+	height:500px;
+	width:100%;
+}
+
+/* Index- general */
+
+.index{
+	height:2500px;
+}
+
+/* Index- topics */
+
+.topics_index li{
+	list-style:none;
+	width:400px;
+	border-bottom-style:solid;
+	border-bottom-color:silver;
+	border-bottom-width:2px;
+}
+
+/* For Popup */
+
+.backgroundPopup{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	border:1px solid #cecece;
+	z-index:1;
+}
+.popupPicture{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:400px;
+	width:500px;
+	background-color:white;
+	border:2px solid #cecece;
+	z-index:2;
+	padding:12px;
+	font-size:13px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+.popupPicture h2{
+	text-align:center;
+	color:#6fa5fd;
+	font-size:22px;
+	font-weight:700;
+	border-bottom:2px dotted #D3D3D3;
+	padding-bottom:2px;
+	margin-bottom:20px;
+}
+.popupContactClose{
+	font-size:18px;
+	line-height:14px;
+	right:6px;
+	top:4px;
+	position:absolute;
+	color:#6fa5fd;
+	font-weight:700;
+	display:block;
+	cursor: pointer;
 }
 
 /* ------------------------------------------
