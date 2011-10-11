@@ -24,8 +24,8 @@
 					</div>
 				</li>
 				<% @user.profiles.each do |p| %>
-					<li><%= link_to "#{p.expertise}", edit_profile_path(@user) %></li>
-					<li><%= link_to "#{p.kind}", edit_profile_path(@user) %></li>
+					<li><%= link_to "#{p.expertise}", edit_profile_path(p) %></li>
+					<li><%= link_to "#{p.kind}", edit_profile_path(p) %></li>
 				<% end %>
 				<li><div class="show_time">
 					Member Since: <%= (@user.created_at).to_date.to_s(:long) %>

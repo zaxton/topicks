@@ -267,6 +267,73 @@ footer span{
   font-size: 12px;  
 }
 
+/* For Sign in page */
+
+.session{
+	height:450px;
+	width:100%;
+}
+.sign_in_and_information{
+	margin-left:auto;
+	margin-right:auto;
+	height:300px;
+	width:500px;
+	border-style:solid;
+	border-color:silver;
+	border-width:3px;
+}
+.sign_in_and_information h2{  
+    position: relative;  
+    width: 50%;  
+    font-size: 1.5em;  
+    font-weight: bold;  
+    padding: 6px 20px 6px 70px;  
+    margin: 30px 10px 10px -70px;  
+    color: white;  
+    background-color: black;  
+    text-shadow: 0px 1px 2px #bbb;  
+    -webkit-box-shadow: 0px 2px 4px #888;  
+    -moz-box-shadow: 0px 2px 4px #888;  
+    box-shadow: 0px 2px 4px #888;  
+	left:46px;
+	bottom:20px;
+}  
+.sign_in_and_information h2:after{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    left: 0px;  
+    top: 100%;  
+    border-width: 5px 10px;  
+    border-style: solid;  
+    border-color: #666 #666 transparent transparent;  
+}
+.sign_in_and_information h2:before{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    right: -2px;  
+    top: 0px;  
+    border-color: transparent #fff transparent transparent;  
+}
+#session_new_user a{
+	color:#4169E1;
+	text-decoration:none;
+}
+#session_new_user a:hover{
+	text-decoration:underline;
+}
+#forgot{
+	color:#4169E1;
+	text-decoration:none;
+}
+.new_user_in_sessions{
+	position:relative;
+	bottom:120px;
+}
+
 /* For Signed In Home */
 
 .home_signed_in{
@@ -413,8 +480,12 @@ footer span{
 	color:#4169E1;
 }
 .topic_form textarea{
-	height:3em;
+	margin-left:auto;
+	margin-right:auto;
+	height:10em;
 	width:380px;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
 }
 .threads{
 	position:absolute;
@@ -635,6 +706,11 @@ footer span{
 	height:auto;
 	width:500px;
 }
+.third_party_on_comments{
+	position:absolute;
+	left:900px;
+	top:180px;
+}
 
 /* For User Show Page */
 
@@ -734,7 +810,7 @@ footer span{
 /* For User Profiles */
 
 .user_profile_edit{
-	height:400px;
+	height:500px;
 	width:100%;
 }
 .profile_edit{
@@ -792,8 +868,68 @@ footer span{
 /* For Edit User */
 
 .edit_user{
+	margin-left:3%;
 	height:500px;
 	width:100%;
+	
+}
+.edit_user p{
+	position:absolute;
+	width:300px;
+	right:20px;
+	bottom:200px;
+	font-size:14px;
+	color:#4169E1;
+	font-style:italic;
+}
+.edit_user_form{
+	height:350px;
+	width:500px;
+	border-top-style:solid;
+	border-left-style:solid;
+	border-color:silver;
+	border-width:2px;
+}
+.edit_user_form h2{  
+    position: relative;  
+    width: 50%;  
+    font-size: 1.5em;  
+    font-weight: bold;  
+    padding: 6px 20px 6px 70px;  
+    margin: 30px 10px 10px -70px;  
+    color: white;  
+    background-color: black;  
+    text-shadow: 0px 1px 2px #bbb;  
+    -webkit-box-shadow: 0px 2px 4px #888;  
+    -moz-box-shadow: 0px 2px 4px #888;  
+    box-shadow: 0px 2px 4px #888;  
+	left:46px;
+	bottom:20px;
+}  
+.edit_user_form h2:after{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    left: 0px;  
+    top: 100%;  
+    border-width: 5px 10px;  
+    border-style: solid;  
+    border-color: #666 #666 transparent transparent;  
+}
+.edit_user_form h2:before{  
+    content: ' ';  
+    position: absolute;  
+    width: 0;  
+    height: 0;  
+    right: -2px;  
+    top: 0px;  
+    border-color: transparent #fff transparent transparent;  
+}
+.gravatar_section{
+	position:absolute;
+	left:800px;
+	bottom:300px;
 }
 
 /* Index- general */
@@ -837,12 +973,10 @@ footer span{
 	z-index:2;
 	padding:12px;
 	font-size:13px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
 }
 .popupPicture h2{
 	text-align:center;
-	color:#6fa5fd;
+	color:gray;
 	font-size:22px;
 	font-weight:700;
 	border-bottom:2px dotted #D3D3D3;

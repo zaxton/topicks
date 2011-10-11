@@ -21,7 +21,7 @@ Topik::Application.routes.draw do
         
         match '/goodby' => :goodby
     
-        match '/about' => :about
+        match '/topicks' => :topicks
         
         match '/help' => :help
         

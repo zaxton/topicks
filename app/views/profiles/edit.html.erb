@@ -1,0 +1,15 @@
+<div class="user_profile_edit">
+	<div class="profile_edit">
+		<h2>Edit Settings</h2>
+		<div class="edit_form">
+			<%= form_for(@profile) do |f| %>
+			<div class="form_input">
+				<%= f.label :expertise, "Expertise:" %><br \>
+				<%= f.text_field :expertise %>
+			</div><br \>
+				<%= f.label :kind, "Your type:"%><br \>
+				<%= f.select :kind, [["Rational", "rational"], ["Artisan", "artisan"], ["Idealist", "idealist"], ["Guardian", "guardian"]] %>
+				<%= f.submit "Post", :class => 'button' %>
+			<% end %>
+	</div>
+</div>

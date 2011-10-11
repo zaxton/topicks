@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     def home
         @user = User.new
         if signed_in?
-            @title = "Home"
+            @title = "Topicks Home"
             @posts = current_user.topics.limit(10)
         end
     end
@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     def goodby
     end
     
-    def about
+    def topicks
     end
     
     def help

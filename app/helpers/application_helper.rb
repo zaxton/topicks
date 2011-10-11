@@ -2,11 +2,10 @@ module ApplicationHelper
 
     # Sets the title for the web site- use @title in controllers
     def title
-        base_title = "Topicks"
         if @title.nil?
-            "Welcome to #{base_title}"
+            "Welcome to Topicks"
         else
-            "#{@title} @ #{base_title}"
+            "#{@title}"
         end
     end
     

@@ -9,16 +9,17 @@
 			<br/><br/>
 			<div class="new_picture">
 				<div class="album_create">
-					<h2>[<em>Insert Album</em>]</h2>
+					<h2>Start A Convo About Entertainment</h2>
 				<div class="new_album">
+					<center>
 					<div class="topic_form" title="New Topic">
-					<h3>Start A Convo About Entertainment</h3>
 					<% form_for(@topic, @topic.category = "Entertainment") do |f| %>
 						<%= f.hidden_field :category %>
 						<%= f.text_area :content %>
-						<%= f.submit "Post" %>
+						<%= f.submit "Post", :class => 'primary button' %>
 					<% end %>
 					</div>
+					</center>
 				</div>
 			</div>
 		</div>

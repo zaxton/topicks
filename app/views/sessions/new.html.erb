@@ -1,0 +1,70 @@
+<div class="session">
+	<div class="sign_in_and_information">	
+		<h2>Sign In</h2>
+		<div class="session_form">
+		
+		<%= form_for(:session, :url => sessions_path, :method => 'post')  do |f| %>
+		<div class="session_fields">
+			<%= f.text_field :email, :placeholder => "Email" %>
+		</div>
+		<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+		<%= label_tag :remember_me %><br \>
+		<div class="session_fields">
+			<%= f.password_field :password, :placeholder => "Password" %>
+		</div>
+		<em><%= link_to "(forgot?)", '#', :id => "forgot" %></em>
+		<br \><br \>
+		<div class="sign_in">
+			<%= f.submit "Sign In", :class=> 'big button'%>
+		</div>
+		<% end %>
+		</div>
+		<div id="session_new_user">
+			<p>Don't have an account? <%= link_to "Click here", '#', :id => "new_topic" %> to sign up.</p>
+		</div>
+	</div>
+
+
+	<div class="popupPicture">
+		<a class="popupContactClose">[close]</a>
+
+		<p class="contactArea">
+			<br/><br/>
+			<div class="new_picture">
+				<div class="album_create">
+					<div class="new_user_in_sessions">
+					<div class="user_creation_panel">
+					<%= form_for(@user, :validate => true) do |f| %>
+						<div class="session_fields">
+							<%= f.text_field :username, :placeholder => "Username*" %>
+						</div><br \>
+						<div class="session_fields">
+							<%= f.text_field :name, :placeholder => "Name*" %>
+						</div><br \>
+						<div class="session_fields">
+							<%= f.email_field :email, :placeholder => "Email*" %>
+						</div><br \>
+						<div class="session_fields">
+							<%= f.password_field :password, :placeholder => "Password*" %>
+						</div><br \>
+						<div class="session_fields">
+							<%= f.password_field :password_confirmation, :placeholder => "Confirm*" %>
+						</div><br \>
+						<div class="session_fields">
+						<%= f.text_field :birthday, :placeholder => "Birthday*" %>
+						</div><br \>
+							<%= f.submit "Create New Account", :class => 'primary button' %>
+					<% end %>
+					</div>
+					</div>
+					
+			</div>
+		</div>
+		</p>
+	</div>
+	<div class="backgroundPopup"></div>
+
+	
+	<!-- End Popup -->
+
+</div>
