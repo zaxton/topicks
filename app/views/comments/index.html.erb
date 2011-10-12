@@ -24,7 +24,9 @@
 		<% end %>
 		</ul>
 		<% end %>
-		<%= will_paginate @comments %>
+		<div class="comments_pagination">
+			<%= will_paginate @comments %>
+		</div>
 	</div>
 	<div class="new_comment">
 		<h3>Respond</h3>

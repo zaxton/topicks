@@ -1,2 +1,31 @@
 <div class="index">
+	<div class="user_index_top">
+		<h2>Everyone On Topicks</h2>
+		<div id="ui_search">
+		<%= form_tag users_path, :method => 'get' do %>
+		<p>
+		<%= text_field_tag :search, params[:search], :placeholder => "Search for People", :id => "search_bar_user" %>
+		<%= submit_tag "Search", :class => 'button', :name => nil %>
+		</p>
+		<% end %>
+		</div>
+	</div>
+	<div class="user_index">
+		<ul>
+			<% @users.each do |user| %>
+				<li>
+					<%= link_to (gravatar_for user, :size => 60), user_path(user) %>
+					<div class="user_uname">
+					<%= link_to (user.username), user_path(user) %>
+					</div>
+					<div class="t_count">
+					<%= pluralize(user.topics.count, "topic") %>
+					</div>
+				</li>
+			<% end %>
+		</ul>
+		<center>
+			<%= will_paginate @users %>
+		</center>
+	</div>
 </div>

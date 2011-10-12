@@ -334,6 +334,52 @@ footer span{
 	bottom:120px;
 }
 
+/* For Misc Pages */
+
+.help_page{
+	height:500px;
+	width:100%;
+}
+.external_help{
+	position:absolute;
+	left:800px;
+	top:120px;
+	height:400px;
+	width:150px;
+	border-top-style:solid;
+	border-right-style:solid;
+	border-color:silver;
+	border-width:2px;
+}
+.help_page h2{
+	color:black;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-style:italic;
+}
+.external_help ul{
+	position:relative;
+	right:40px;
+}
+.external_help li{
+	list-style:none;
+	padding:20px;
+	border-bottom-style:solid;
+	border-color:silver;
+	border-width:2px;
+	width:100px;
+}
+.external_help a{
+	color:blue;
+	text-decoration:none;
+}
+.external_help a:hover{
+	text-decoration:underline;
+}
+.about{
+	height:600px;
+	width:100%;
+}
+
 /* For Signed In Home */
 
 .home_signed_in{
@@ -711,6 +757,11 @@ footer span{
 	left:900px;
 	top:180px;
 }
+.comments_pagination{
+	position:relative;
+	left:300px;
+	top:10px;
+}
 
 /* For User Show Page */
 
@@ -946,6 +997,63 @@ footer span{
 	border-bottom-style:solid;
 	border-bottom-color:silver;
 	border-bottom-width:2px;
+}
+
+/* Index - user */
+
+.user_index_top{
+	height:60px;
+	border-bottom-style:solid;
+	border-color:silver;
+	border-width:2px;
+}
+.user_index_top h2{
+	position:absolute;
+	right:100px;
+	font-style:italic;
+	color:gray;
+}
+#ui_search{
+	position:absolute;
+	top:60px;
+}
+#search_bar_user{
+	width:250px;
+}
+.user_index{
+	position:absolute;
+	margin-left:30%;
+	width:450px;
+	border-bottom-style:solid;
+	border-left-style:solid;
+	border-right-style:solid;
+	border-color:silver;
+	border-width:2px;
+	top:113px;
+}
+.user_index li{
+	margin-right:5%;
+	list-style:none;
+	border-bottom-style:solid;
+	border-color:silver;
+	border-width:1px;
+}
+.user_uname{
+	position:relative;
+	left:70px;
+	bottom:40px;
+}
+.user_uname a{
+	color:blue;
+	text-decoration:none;
+}
+.user_uname a:hover{
+	text-decoration:underline;
+}
+.t_count{
+	position:relative;
+	left:70px;
+	bottom:30px;
 }
 
 /* For Popup */

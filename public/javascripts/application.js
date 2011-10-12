@@ -9,10 +9,6 @@ $(function() {
 	});
 });
 
-
-
-
-
 $.fx.speeds._default = 1000;
 	$(function() {
 		$( ".new_bookmark_form" ).dialog({
@@ -42,6 +38,22 @@ $.fx.speeds._default = 1000;
 				$(this).css(resetCSS);
 			});
 		});
+		
+		
+		$(function(){
+				$(".user_index li").hover(function(){
+					$(this).css({
+						"background-color":"#F5F5F5",
+						"cursor":"pointer"
+					});
+				}, function(){
+					var resetCSS = {
+						"background-color":"",
+						"cursor":""
+					}
+					$(this).css(resetCSS);
+				});
+			});
 		
 		
 		var popupStatus = 0;

@@ -12,9 +12,15 @@ class PagesController < ApplicationController
     end
     
     def topicks
+        @title = "Topicks"
     end
     
     def help
+        @title = "Help"
+        @topics = Topic.where('category = ?', "Help").all
+        @topic = Topic.new
+        @heading = "Topicks_help"
+        @tip = "This is the topicks support page. Ask a question or answer one."
     end
     
     def terms

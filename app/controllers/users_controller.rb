@@ -22,8 +22,7 @@ class UsersController < ApplicationController
     
     def index
         @title = "Find People"
-        @users = User.search(params[:search]).paginate(:per_page => 33, :page => params[:page])
-        
+        @users = User.search(params[:search]).paginate(:per_page => 33, :page => params[:page])    
     end
     
     def edit
