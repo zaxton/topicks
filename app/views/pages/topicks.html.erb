@@ -1,2 +1,37 @@
 <div class="about">
+	<h2>Welcome to Topicks!</h2>
+	<hr \>
+	<p>Have a question you're dying to get answered? Or maybe you have some juicy gossip worth sharing? Or, perhaps you feel the need to just comment on a current event? What ever the need, you to discuss it here, on topicks. Topicks is an open forum site that seeks to push the boundaries on discussion. Talk, ask, or debate on almost anything. Then, follow people who's topicks and comments you like for more collaboration.</p>
+	<br \>
+	<hr \>
+	<div class="who_we_are">
+		<script>
+			$(function() {
+				$( "#tabs" ).tabs();
+			});
+			</script>
+
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Facts</a></li>
+				<li><a href="#tabs-2">Team</a></li>
+			</ul>
+			<div id="tabs-1">
+				<ul>
+					<li>Created Nov. 2011</li>
+					<li>Goal: To provide quick communication to all</li>
+					<li>Purpose: Create a Social App in one week</li>
+					<li>If you want to contribute to the project, drop us a line at contribute@topicks.com</li>
+					<li>Cheers!</li>
+				</ul>
+			</div>
+			<div id="tabs-2">
+				<ul>
+					<li><%= link_to (founderOne), "/users/1" %></li>
+					<li><%= founderTwo %></li>
+				</ul>
+			</div>
+
+		</div>
+	<h3><center>Have an questions or concerns please see our help forum <%= link_to "here", help_path %>. Would you like to report an issue? See here</center></h3>
 </div>

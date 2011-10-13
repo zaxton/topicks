@@ -7,6 +7,7 @@ Topik::Application.routes.draw do
     resources :profiles
     resources :bookmarks
     resources :relationships
+    resources :password_resets
     
     resources :topics do
         resources :comments

@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
     validates :birthday, :presence => true
     
     before_save :encrypt_password
+    before_create { generate_token(:password_rem_token) }
 
     def self.authenticate(email, password)
         user = find_by_email(email)

@@ -376,8 +376,79 @@ footer span{
 	text-decoration:underline;
 }
 .about{
-	height:600px;
+	height:800px;
 	width:100%;
+}
+.about h2{
+	color:#3399FF;
+	font-style:italic;
+	font-weight:bold;
+}
+.about p{
+	margin-left:4%;
+	width:80%;
+	text-indent:20px;
+	font-size:18px;
+}
+.about h3{
+	font-weight:1200;
+	color:#297ACC;
+}
+.about h3 a{
+	text-decoration:none;
+	font-style:italic;
+	color:#297ACC;
+}
+.about h3 a:hover{
+	text-decoration:underline;
+}
+.who_we_are{
+	height:500px;
+}
+#tabs{
+	margin-left:auto;
+	margin-right:auto;
+	width:800px;
+}
+#tabs-1 li{
+	list-style-type:square;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:17px;
+}
+#tabs-2 li{
+	list-style:none;
+	display:inline;
+}
+.reset_pass{
+	height:400px;
+	width:100%;
+}
+.reset_form{
+	margin-left:auto;
+	margin-right:auto;
+	height:200px;
+	width:400px;
+	border-style:solid;
+	border-color:silver;
+	border-width:1.5px;
+}
+.reset_form h2{
+	font-style:italic;
+	font-size:18px;
+	text-align:center;
+	color:orange;
+}
+.reset_field input{
+	position:relative;
+	height:20px;
+	width:300px;
+	top:30px;
+	left:20px;
+}
+.reset_actions{
+	position:relative;
+	top:40px;
+	left:250px;
 }
 
 /* For Signed In Home */
