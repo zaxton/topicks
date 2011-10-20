@@ -1,0 +1,16 @@
+	<div class="session_form">
+	
+	<%= form_for(:session, :url => sessions_path, :method => 'post')  do |f| %>
+	<div class="session_fields">
+		<%= f.email_field :email, :placeholder => "Email" %>
+	</div>
+	<div class="session_fields">
+		<%= f.password_field :password, :placeholder => "Password" %>
+	</div>
+	<em><%= link_to "(forgot?)", '#', :id => "forgot" %></em>
+	<br \><br \>
+	<div class="sign_in">
+		<%= f.submit "Sign In", :class=> 'big button'%>
+	</div>
+	<% end %>
+	</div>

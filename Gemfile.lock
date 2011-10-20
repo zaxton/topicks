@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     client_side_validations (3.1.0)
+    cocaine (0.2.0)
     css3buttons (1.0.1)
       actionpack (>= 3.0.0)
     erubis (2.6.6)
@@ -47,6 +48,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    paperclip (2.4.4)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.11.0)
     polyglot (0.3.2)
     rack (1.2.3)
@@ -86,6 +92,7 @@ DEPENDENCIES
   css3buttons
   gravatar_image_tag (= 1.0.0.pre2)
   jquery-rails
+  paperclip (~> 2.4)
   pg
   rails (= 3.0.9)
   will_paginate (~> 3.0)

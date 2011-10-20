@@ -19,6 +19,14 @@ class TopicsController < ApplicationController
         @topics = Topic.search(params[:search]).paginate(:per_page => 33, :page => params[:page])
     end
     
+    def grapevein
+        @title = "The Grape Vein"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "Vein").all
+        @heading = "Welcome To The Grape Vein"
+        @tip = "Post Anything, Anonymously" 
+    end
+    
     def entertainment
         @title = "Entertainment"
         @topic = Topic.new

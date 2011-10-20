@@ -11,22 +11,31 @@
 	</div>
 	<div class="all_comments">
 		<% unless @comments.empty? %>
-		<ul>
-		<%  @comments.each do |comment| %>
+		<ul class='list' last="<%= @comments.to_a.last.created_at%>">
 			<div class="comment">
-			<li>
-			  <div class="created_at">On <%= comment.created_at.strftime("%B %d, %Y") %></div>
-			  	<div class="content"><%= comment.content  %></div>
-				<div class="picture"><%= gravatar_for comment.topic.user %></div>
-				<div class="c_user"><%= link_to "#{comment.topic.user.username}", user_path(comment.topic.user) %></div>
-			</li>
+				<%=render :partial => "comments", :collection => @comments %>
+			<div id="infinite-scroll"></div>
 			</div>
-		<% end %>
 		</ul>
 		<% end %>
-		<div class="comments_pagination">
-			<%= will_paginate @comments %>
-		</div>
+	<script>
+	$('ul.list').endlessScroll({
+	  fireOnce: true,
+	  fireDelay: 500,
+		ceaseFire: function(){
+		  return $('#infinite-scroll').length ? false : true;
+		},
+		callback: function(){
+		  $.ajax({
+			  url: '/posts',
+			  data: {
+				  last: $(this).attr('last')
+			  },
+			  dataType: 'script'
+			});
+		}
+	});
+	</script>
 	</div>
 	<div class="new_comment">
 		<h3>Respond</h3>

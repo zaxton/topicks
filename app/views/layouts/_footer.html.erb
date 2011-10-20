@@ -5,7 +5,10 @@
 		<%= link_to "Terms", terms_path %> |
 		<%= link_to "Privacy", privacy_path %> |
 		<%= link_to "Advertisers", '#' %> |
-	<span>© 2011, Xion Systems Inc. All Rights Reserved </span>
+		<% if mobile_device? %>
+	    	<%= link_to "Mobile", :mobile => 1 %>
+	    <% end %>
+	<span>&copy; 2011, Xion Systems Inc. All Rights Reserved </span>
 	</div>
 	<%= render 'layouts/external_footer' %>
 </footer>

@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
 gem 'client_side_validations'
+gem "paperclip", "~> 2.4"
 
 # Use unicorn as the web server
 # gem 'unicorn'

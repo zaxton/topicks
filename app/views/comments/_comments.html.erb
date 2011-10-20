@@ -1,0 +1,8 @@
+	<li>  
+	<div class="created_at">On <%= comments.created_at.strftime("%B %d, %Y") %></div>
+	  	<div class="content"><%= comments.content  %></div>
+	<% User.where("id = ?", comments.user_id).each do |user| %>
+		<div class="picture"><%= gravatar_for user %></div>
+		<div class="c_user"><%= link_to "#{user.username}", user_path(user) %></div>
+	<% end %>
+	</li>

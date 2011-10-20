@@ -13,6 +13,11 @@ Topik::Application.routes.draw do
         resources :comments
     end
     
+    resources :storages do
+        resources :managers
+    end
+    
+    match '/grapevein', :to => 'topics#grapevein'
     match '/entertainment', :to => 'topics#entertainment'
     match '/events', :to => 'topics#events'
     match '/news', :to => 'topics#news'

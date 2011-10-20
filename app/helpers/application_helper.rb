@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+    
     # Sets the title for the web site- use @title in controllers
     def title
         if @title.nil?
@@ -38,6 +38,10 @@ module ApplicationHelper
         home_picture = image_tag("topics.jpg", :alt => "Photo", :size => "650x450")
     end
     
+    def vine_art
+        vine_art = image_tag("grapevine.png", :alt => "Grape Vine", :size => "100x100")
+    end
+    
     def movie_art
         movie_art = image_tag("clapboard.png", :alt => "Entertainment", :size => "100x100")
     end 
@@ -49,4 +53,21 @@ module ApplicationHelper
     def events_art
         events_art = image_tag("events-icon.gif", :alt => "Events", :size => "100x100")
     end 
+    
+    def app_store_logo
+        app_store_logo = image_tag("app-store-badge.png", :alt => " ", :size => "200x75")
+    end
+    
+    def folder
+        folder = image_tag("folder.png", :alt => "Folder", :size => "45x45")
+    end
+    
+    # Photos for bottom bar
+    def home_pic
+        home_pic = image_tag("home.png", :alt => "Home", :size => "20x20")
+    end
+    
+    def question_mark
+        question_mark = image_tag("question_mark.png", :alt => "Home", :size => "25x25")
+    end
 end

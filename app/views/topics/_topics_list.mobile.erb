@@ -1,0 +1,18 @@
+<ul>
+	<% @topics.each do |topic| %>
+		<li>
+			<div class="gravatar">
+			<%= link_to (gravatar_for topic.user, :size => 45), user_path(topic.user) %>
+			</div>
+			<div class="topics_user">
+			From :<%= link_to "#{topic.user.username}", user_path(topic.user)  %><br \>
+			</div>
+			<div class="topics_content">
+			<%= topic.content %><br \>
+			<div class="topics_time">
+			<%= link_to "Threads(#{topic.comments.count})", topic_comments_path(topic) %>
+			Posted <%= time_ago_in_words(topic.created_at) %> ago.
+			</div>
+		</li>
+	<% end %>
+</ul>

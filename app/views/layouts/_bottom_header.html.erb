@@ -1,14 +1,101 @@
-<div id="nav_menu_wrapper">
-      <div class="nav_menu">
-          <ul>
-            <li><%= link_to "#{current_user.username}", current_user %></li>
-		    <li><%= link_to "Home", root_path %></li>
-   			<li><%= link_to "Help", help_path %></li>
-			<li><%= link_to "Chains", '#' %></li>
-			<li><%= link_to "People", users_path(current_user) %></li>
-			<li><%= link_to "All Topics", topics_path %></li>
-			<li><%= link_to "Account", edit_user_path(current_user) %></li>
-            <li><%= link_to "Log out", signout_path %></li>
-          </ul>
+<script>
+    $(document).ready(function(){
+
+	  //hide toolbar and make visible the 'show' button
+		$("span.downarr a").click(function() {
+	    $("#toolbar").slideToggle("fast");
+	    $("#toolbarbut").fadeIn("slow");    
+	  });
+
+	  //show toolbar and hide the 'show' button
+	  $("span.showbar a").click(function() {
+	    $("#toolbar").slideToggle("fast");
+	    $("#toolbarbut").fadeOut();    
+	  });
+
+	  //show tooltip when the mouse is moved over a list element 
+	  $("ul#social li").hover(function() {
+			$(this).find("div").fadeIn("fast").show(); //add 'show()'' for IE
+	    $(this).mouseleave(function () { //hide tooltip when the mouse moves off of the element
+	        $(this).find("div").hide();
+	    });
+	  });
+
+	  //don't jump to #id link anchor 
+	  $(".facebook, .twitter, .delicious, .digg, .rss, .stumble, .menutit, span.downarr a, span.showbar a").click(function() {
+	   return false;                                         
+		});
+
+	  //show quick menu on click 
+		$("span.menu_title a").click(function() {
+			if($(".quickmenu").is(':hidden')){ //if quick menu isn't visible 
+				$(".quickmenu").fadeIn("fast"); //show menu on click
+			}
+			else if ($(".quickmenu").is(':visible')) { //if quick menu is visible 
+	      $(".quickmenu").fadeOut("fast"); //hide menu on click
+	    }
+		});
+
+		//hide menu on casual click on the page
+		$(document).click(function() {
+				$(".quickmenu").fadeOut("fast");
+				$(".quickmenu").css({'vivibility': 'hidden'});
+		});
+		$('.quickmenu').click(function(event) { 
+			event.stopPropagation(); //use .stopPropagation() method to avoid the closing of quick menu panel clicking on its elements 
+		});
+
+
+	});
+
+	</script>
+
+<div id="toolbarbut"> <!-- hide button -->
+<span class="showbar" title="Open"><a href="#">Open</a></span>
+</div>
+
+<div id="toolbar"> <!-- toolbar container -->
+
+<div class="leftside"> <!-- all things in floating left side -->
+  <ul id="social">
+    <li><a class="rss" href="#"></a><!-- icon -->
+      <div id="tiprss" class="tip"><!-- tooltip -->
+        <ul>
+          <li><a href="#">580 Readers</a></li>
+          <li><a href="#"><small>[Subscribe]</small></a></li>
+        </ul>  
       </div>
+    </li>
+    <li><a class="facebook" href="<%= root_path %>"></a> 
+    </li>
+    <li><a class="twitter" href="#"></a>
+    </li>
+    <li><a class="delicious" href="<%= storages_path(current_user) %>"></a>
+    </li>
+    <li><a class="digg" href="#"></a>
+    </li>
+  </ul>
+</div>
+
+<div class="rightside"> <!-- all things in floating left side -->
+  <span class="downarr"> <!-- hide button -->
+  <a href="#"></a>
+  </span>
+  <span class="menu_title">
+    <a class="menutit" href="#">More...</a> <!-- quick menu title -->
+  </span>
+  <div class="quickmenu">
+    <ul> <!-- quick menu list -->
+      <li><%= link_to "Upgrade", '#' %></li>
+      <li><%= link_to "All Topics", topics_path %></li>
+      <li><%= link_to "Find People", users_path %></li>
+      <li><%= link_to "Feed Back", '#' %></li>
+      <li><%= link_to "Account", edit_user_path(current_user) %></li>
+      <li><%= link_to "Log Out", signout_path %></li>
+    </ul> 
   </div>
+</div>
+
+</div>
+
+	

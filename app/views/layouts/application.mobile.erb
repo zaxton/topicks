@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= render 'layouts/mobile_external' %>
+	<%= yield(:head) %>
+    <%= csrf_meta_tag %>
+  </head>
+
+  <body>
+	<div data-role="page" data-theme="d">
+		<header>
+			<% if signed_in? %>
+				<%= render 'layouts/two_header' %>
+			<% else %>
+				<%= render 'layouts/one_header' %>
+			<% end %>
+		</header>
+	 
+	
+	<% flash.each do |key, value| %>
+			<%= content_tag(:div, value, :class => "flash #{key}" )%>
+		<% end %>
+		
+		<%= yield %>
+		
+		<% if signed_in? %>
+			<%= render 'layouts/footer' %>
+			<%= render 'layouts/external_mobile_bottom' %>
+		<% end %>
+	</div>
+  </body>
+</html>

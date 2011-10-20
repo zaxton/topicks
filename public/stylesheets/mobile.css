@@ -1,0 +1,78 @@
+html, body{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+header{
+	width:100%;
+}
+.new_link{
+	position:absolute;
+	top:60%;
+}
+.action{
+	width:200px;
+}
+.one_modile_header{
+	height:100px;
+	background-image:url('wisps.jpg');
+	border-bottom:1px solid silver;
+}
+.acount_links{
+	position:absolute;
+	width:30%;
+	top:10px;
+}
+footer{
+	position:absolute;
+	left:20%;
+	bottom:40px;
+}
+
+/* For Home Not Signed In */
+
+.mobile_home li{
+	height:75px;
+}
+.mobile_home li a{
+	font-size:20px;
+}
+.app_photo{
+	position:absolute;
+	left:20%;
+	top:60%;
+}
+.bottom_links{
+	position:absolute;
+	top:95%;	
+}
+.bottom_links li{
+	display:inline;
+	padding-right:10px;
+	padding-left:10px;
+}
+
+/* For Mobile Home Signed In */
+
+.mobile_home_signedin{
+	height:250px;
+}
+
+/* For topics */
+
+.topics{
+	height:600px;
+}
+.topics li{
+	list-style:none;
+	padding-bottom:15px;
+}
+.topics_user{
+	position:relative;
+	left:50px;
+	bottom:20px;
+}
+.topics_select li{
+	height:55px;
+}

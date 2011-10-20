@@ -1,0 +1,23 @@
+<div class="user_creation_panel">
+	<h2>Join Topicks</h2>
+<%= form_for(@user) do |f| %>
+	<div class="session_fields">
+		<%= f.text_field :username, :placeholder => "Username*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.text_field :name, :placeholder => "Name*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.email_field :email, :placeholder => "Email*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.password_field :password, :placeholder => "Password*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.password_field :password_confirmation, :placeholder => "Confirm*" %>
+	</div><br \>
+	<div class="session_fields">
+		<%= f.date_select :birthday, :add_month_numbers => true, :order => [:month, :day, :year] %>
+	</div><br \>
+		<%= f.submit "Create!", :class => 'create_button' %>
+<% end %>

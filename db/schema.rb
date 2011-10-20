@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008052315) do
+ActiveRecord::Schema.define(:version => 20111019212652) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(:version => 20111008052315) do
   add_index "comments", ["topic_id"], :name => "comment_topic"
   add_index "comments", ["user_id"], :name => "comment_user"
 
+  create_table "managers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "storage_id"
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "expertise"
@@ -44,6 +56,13 @@ ActiveRecord::Schema.define(:version => 20111008052315) do
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "storages", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "folder_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,9 +86,9 @@ ActiveRecord::Schema.define(:version => 20111008052315) do
     t.string   "password_rem_token"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "birthday"
   end
 
   add_index "users", ["id"], :name => "user_index"

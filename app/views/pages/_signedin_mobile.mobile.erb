@@ -1,0 +1,25 @@
+<div class="mobile_home_signedin">
+	<div class="topics_select">
+		<ul data-role="listview">
+			<li>
+				<%= link_to entertainment_path do %>
+					<%= "Entertainment" %>
+					<span class="ui-li-count"><%= entertain_count %></span>
+				<% end %>
+			</li>
+			<li>
+				<%= link_to news_path do %>
+					<%= "News" %>
+					<span class="ui-li-count"><%= news_count %></span>
+				<% end %>
+			</li>
+			<li>
+				<%= link_to events_path do %>
+					<%= "Events" %>
+					<span class="ui-li-count"><%= events_count %></span>
+				<% end %>
+			</li>
+			<li><%= link_to "The Grape Vein", '#' %></li>
+		</ul>
+	</div>
+</div>

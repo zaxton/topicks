@@ -7,5 +7,7 @@ class Comment < ActiveRecord::Base
     attr_accessible :content
     belongs_to :topic
     
-    default_scope :order => 'comments.created_at DESC'
+    def self.feed(last)
+        self.where("created_at < ? ", last).order('created_at desc').limit(10)
+    end
 end

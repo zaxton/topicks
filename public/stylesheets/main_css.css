@@ -19,7 +19,8 @@ html, body{
 	overflow:hidden;
 }
 header{
-	background-color:#E7EEF1;
+	background:-moz-linear-gradient(center top , #CCEBF5, #E7EEF1) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear, center top , center bottom, from(#CCEBF5), to(#E7EEF1) );
 	border-bottom-style:solid;
 	border-bottom-color:#CCEBF5;
 	border-bottom-width:1px;
@@ -121,48 +122,281 @@ footer span{
 #right_footer a:hover{
 	text-decoration:underline;
 }
-#nav_menu_wrapper { 
-	height:30px; 
-	width:100%; 
-	bottom:0px;
-	position:fixed;
-	overflow:hidden;
-}
-#nav_menu_wrapper .nav_menu {
-	height:30px; 
-	width:900px; 
-	margin-left:auto;
-	margin-right:auto;	
-	background-color:#EEEEEE;
-	border:#666666 solid 1px;
-}
-#nav_menu_wrapper .nav_menu ul {
-	margin-top:5px;
+
+
+ol,ul {
 	list-style:none;
 }
-#nav_menu_wrapper .nav_menu li {
-	display:inline;
+a {
+  text-decoration: none;
 }
-#nav_menu_wrapper .nav_menu li a {
-	padding-top:3px;
-	padding-bottom:5px;
-	padding-left:20px;			
-	padding-right:20px;
+
+a:focus {
+  outline: 0;
 }
-#nav_menu_wrapper .nav_menu a:link, #nav_menu_wrapper .nav_menu a:visited {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
-	color:#333333;
-	text-decoration:none;
-	background-color:#EEEEEE;
+
+#header {
+  background: url(im/backhead.png) no-repeat left top;
+  min-width: 800px;
+  height: 125px;
+  padding-top: 25px;
+  text-align: center;
 }
-#nav_menu_wrapper .nav_menu a:hover {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
-	color:#FFFFFF;
-	text-decoration:none;
-	background-color:#4169E1;
+
+#header h1 a { 
+  font-size: 44px;
+  color: #eee;
+  text-shadow: 2px 2px 2px #000;
 }
+
+#header h1 a:hover{
+  color: #ccc;
+}
+
+#downhead {
+  min-width: 800px;
+  margin-top: 30px;
+  text-align: center;  
+}
+
+#downhead h2 {
+  font-size: 30px;
+  color: #555;
+  text-shadow: 2px 2px 2px #999;
+}
+
+#downhead p {
+  font-size: 20px;
+  color: #777;
+  padding: 0 50px 30px 50px; 
+}
+
+#downhead img {
+  border: 5px solid #ccc;
+}
+
+/*-- Bottom Toolbar --*/
+
+div#toolbar, div#toolbarbut {
+  position: fixed; /* set fixed position for the bar */
+  bottom: 0px;
+  right: 0px;
+  z-index: 9999; /* keep the bar on top  */
+  height: 36px;
+  background: url(im/bcktool.png);
+  /* CSS3 */
+  -moz-border-radius-topleft: 8px;
+	-khtml-border-radius-topleft: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-khtml-border-radius-topright: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-box-shadow: 0px 1px 10px #666, inset 1px 1px 0px #a4a4a4; /* inset creates a inner-shadow */
+  -khtml-box-shadow: 0px 1px 10px #666;
+  -webkit-box-shadow: 0px 1px 10px #666;
+  /* CSS3 end */
+	border-top: 1px solid #eee;
+  border-left: 1px solid #eee; 
+  border-right: 1px solid #eee;  
+}
+
+div#toolbar {
+  width: 85%;
+  min-width: 700px; /* to limit the width when an excessive window resize */
+  margin: 0px auto; /* centered toolbar */
+  left: 0px;
+}
+
+div#toolbarbut { /* div for the 'hide status' */
+  width: 60px;
+  height: 25px;
+  margin-right: 3%;
+  display: none;
+}
+
+span.showbar a { /* show button */
+  padding: 5px;  
+  font-size: 10px;
+  color: #989898;
+}
+
+.leftside {
+  float: left;
+}
+
+.rightside {
+  float: right;
+}
+
+/*-- Left Side --*/
+
+ul#social li {
+  display: inline;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+a.rss {
+  display: inline-block;
+  width: 104px;
+  height: 35px;
+  margin-left: 5px;
+  background: url(im/rss.png) no-repeat;
+}
+
+a.facebook, a.twitter, a.digg, a.delicious, a.stumble {
+  display: inline-block;
+  width: 40px;
+  height: 40px;        
+  margin-top: 1px;
+}
+
+a.rss:hover, a.facebook:hover, a.twitter:hover, a.digg:hover, a.delicious:hover, a.stumble:hover {
+  background-position: 1px 1px; /* simple css hover effect */
+}
+
+a.facebook {
+  background: url(im/home.png) no-repeat;
+  position:relative;
+	bottom:15px;
+	z-index:100;
+}
+
+a.twitter {
+  background: url(im/chain-md.png) no-repeat;
+ position:relative;
+	bottom:12px;
+}
+
+a.delicious {
+  background: url(im/database_base.png) no-repeat;
+	position:relative;
+	bottom:15px;
+}
+
+a.digg {
+  background: url(im/search-icon.png) no-repeat;
+	position:relative;
+	bottom:15px;
+}
+
+.tip {
+  position: absolute; /* important */
+  top: -75px;
+  width: 250px;
+  background: url(im/tip.png) no-repeat;
+  float: left;
+  display: none;
+}
+
+/* custom distances for the icons */
+#tipfacebook {
+  left: 75px; 
+}
+
+#tiptwitter {
+  left: 120px; 
+}
+
+#tipdelicious {
+  left: 165px; 
+}
+
+#tipdigg {
+  left: 210px; 
+}
+
+#tipstumble {
+  left: 255px; 
+}
+
+.tip ul {
+ 
+}
+
+.tip ul li {
+  display: inline;
+  padding-left: 3px;
+}
+
+.tip ul li a {
+  font-size: 12px;
+  color: #989898;
+}       
+
+.tip ul li a:hover {
+  color: #666;
+}
+
+.tip ul li small {
+  font-size: 10px;
+}
+
+/*-- Right Side --*/
+
+span.downarr { /* hide button */ 
+  float: right;
+  border-left: 1px solid #a4a4a4;
+}
+
+span.downarr a {
+  display: block;
+  width: 36px;
+  height: 26px;
+  padding: 25px 0 0 10px;
+  background: url(im/downarrow.png) no-repeat 5px 7px;
+}
+
+span.menu_title {
+  background: #e4e4e4;
+  border-left: 1px solid #a4a4a4;
+  padding: 10px;
+}
+
+span.menu_title a {
+  font-size: 16px;
+  line-height: 34px;
+  color: #9a9a9a;
+}
+
+.quickmenu {
+  position: absolute; /* important */
+  top: -251px;
+  right: 46px;
+  width: 260px;
+  height: 250px;
+  background: #e4e4e4;
+	border-top: 1px solid #a4a4a4;
+  border-left: 1px solid #a4a4a4; 
+  border-right: 1px solid #a4a4a4;
+  /* CSS3 */
+  -moz-box-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  -khtml-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  -webkit-box-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  /* CSS3 end */
+  display: none; /* important */
+}
+
+.quickmenu ul {
+  padding-top: 20px;
+}
+
+.quickmenu ul li {
+  border-bottom: 1px solid #989898;    
+  padding: 5px 10px;
+  margin: 0 15px 0 15px;
+}
+
+.quickmenu ul li a {
+  font-size: 18px;
+  color: #989898;
+  display: block;
+}
+
+.quickmenu ul li a:hover {
+  color: #666;
+}
+
 .search_top{
 	position:absolute;
 	top:5px;
@@ -475,7 +709,7 @@ footer span{
 }
 .bubble_one{
 	width:500px;
-	height:150px;
+	height:120px;
 	background:-moz-linear-gradient(center top , #F2F2F2, white) repeat scroll 0 0 transparent;
 	background:-webkit-gradient(linear, center top , center bottom, from(#F2F2F2), to(white) );
 	border-style:solid;
@@ -504,7 +738,7 @@ footer span{
 .bubble_two{
 	position:absolute;
 	width:500px;
-	height:150px;
+	height:120px;
 	background:-moz-linear-gradient(center top , #F2F2F2, white) repeat scroll 0 0 transparent;
 	background:-webkit-gradient(linear, center top , center bottom, from(#F2F2F2), to(white) );
 	border-style:solid;
@@ -515,7 +749,7 @@ footer span{
 	border-radius:8px;
 	-moz-border-radius: 8px;
     -webkit-border-radius: 8px;
-	top:180px;
+	top:150px;
 }
 .bubble_two h2{
 	position:absolute;
@@ -534,7 +768,7 @@ footer span{
 .bubble_three{
 	position:absolute;
 	width:500px;
-	height:150px;
+	height:120px;
 	background:-moz-linear-gradient(center top , #F2F2F2, white) repeat scroll 0 0 transparent;
 	background:-webkit-gradient(linear, center top , center bottom, from(#F2F2F2), to(white) );
 	border-style:solid;
@@ -545,7 +779,7 @@ footer span{
 	border-radius:8px;
 	-moz-border-radius: 8px;
     -webkit-border-radius: 8px;
-	top:370px;
+	top:310px;
 }
 .bubble_three h2{
 	position:absolute;
@@ -555,6 +789,36 @@ footer span{
 
 }
 .bubble_three h3{
+	position:absolute;
+	font-size:85%;
+	color:#666;
+	left:120px;
+	top:50px;
+}
+.bubble_four{
+	position:absolute;
+	width:500px;
+	height:120px;
+	background:-moz-linear-gradient(center top , #F2F2F2, white) repeat scroll 0 0 transparent;
+	background:-webkit-gradient(linear, center top , center bottom, from(#F2F2F2), to(white) );
+	border-style:solid;
+	border-color:silver;
+	border-width:1px;
+	box-shadow: 5px 5px 5px #888888;
+	-webkit-box-shadow: 5px 5px 5px #888888;
+	border-radius:8px;
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+	top:470px;
+}
+.bubble_four h2{
+	position:absolute;
+	left:180px;
+	top:10px;
+	color:black;
+
+}
+.bubble_four h3{
 	position:absolute;
 	font-size:85%;
 	color:#666;
@@ -1125,6 +1389,53 @@ footer span{
 	position:relative;
 	left:70px;
 	bottom:30px;
+}
+#user_invite{
+	position:absolute;
+	top:150px;
+	left:10px;
+}
+
+/* For Index - Storages */
+
+.storage_index{
+	position:absolute;
+	top:120px;
+	height:1500px;
+	width:750px;
+	border-style:solid;
+	border-color:silver;
+	border-width:2px;
+	-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.new_storage_links{
+	position:absolute;
+	left:670px;
+}
+.storage_index li{
+	height:60px;
+	width:430px;
+	background:#FFFFF8;
+	border-bottom-style:solid;
+	border-color:silver;
+	border-width:1px;
+}
+.storage_index li a{
+	color:blue;
+}
+.storage_index li a:hover{
+	text-decoration:underline;
+}
+#storage_link{
+	position:relative;
+	bottom:15px;
+}
+#storage_header{
+	text-indent:10px;
+	font-weight:1200;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 /* For Popup */

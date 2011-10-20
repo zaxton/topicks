@@ -1,0 +1,20 @@
+<div class="index">
+	<div class="new_storage">
+		<%= form_for([@storage, @manager], :html => { :multipart => true }) do |f| %>
+			<%= f.file_field :file %>
+			<%= f.submit "Save" %>
+		<% end %>
+	</div>
+	<% unless @managers.empty? %>
+		<div class="managers_index">
+			<ul>
+				<% @managers.each do |m| %>
+				<li>
+					<%= m.file_file_name %><br \>
+					<%= link_to "Download", m.file.url(:original, false) %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	 <% end %>
+</div>

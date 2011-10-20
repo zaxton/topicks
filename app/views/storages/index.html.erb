@@ -1,0 +1,43 @@
+<div class="index">
+	<div class="new_storage_links">
+		<%= link_to "Create New", '#', :class => 'pill button'%>
+	</div>
+	<div class="new_storage">
+		<%= form_for(@storage) do |f| %>
+			<%= f.text_field :folder_name %>
+			<%= f.submit "Save" %>
+		<% end %>
+	</div>
+	<script>
+		$.fx.speeds._default = 1000;
+			$(function() {
+				$( ".new_storage" ).dialog({
+					autoOpen: false,
+					modal: true,
+					height:200,
+					width:500
+				});
+
+				$( ".new_storage_links a" ).click(function() {
+					$( ".new_storage" ).dialog( "open" );
+					return false;
+				});
+			});
+		</script>
+	<div id="storage_header">
+		<h2>Welcome to File Manager</h2>
+	</div>
+	<div class="storage_index">
+	<% unless @storages.empty? %>	
+			<ul>
+				<% @storages.each do |s| %>
+				<li>
+					<%= folder %>
+					<%= link_to (s.folder_name), storage_managers_path(s), :id => "storage_link" %>
+				</li>
+				<% end %>
+			</ul>
+			<%= will_paginate @storages %>
+	<% end %>
+	</div>
+</div>

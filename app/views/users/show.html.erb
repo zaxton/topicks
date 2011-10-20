@@ -54,7 +54,7 @@
 		<% end %>
 		</div>
 		<div class="bookmarks">
-			<h3>Other Sites: <%= link_to "New", '#', :id => "new_bookmark_button" %></h3>
+			<h3>Other Sites: <% if current_user?(@user) %> <%= link_to "New", '#', :id => "new_bookmark_button" %><% end %></h3>
 			<% unless @user.bookmarks.empty? %>
 				<div class="user_bookmarks">
 					<ul>
