@@ -8,6 +8,7 @@ Topik::Application.routes.draw do
     resources :bookmarks
     resources :relationships
     resources :password_resets
+    resources :videos
     
     resources :topics do
         resources :comments
@@ -17,11 +18,30 @@ Topik::Application.routes.draw do
         resources :managers
     end
     
-    match '/grapevein', :to => 'topics#grapevein'
-    match '/entertainment', :to => 'topics#entertainment'
-    match '/events', :to => 'topics#events'
-    match '/news', :to => 'topics#news'
-  
+    match '/uploads/:id', :to => 'users#uploads', :as => 'uploads'
+    
+    controller :topics do
+        match '/movies', :to => :movies
+    
+        match '/games' => :games
+
+        match '/tv' => :tv
+    
+        match '/sports' => :sports
+    
+        match '/world' => :world
+    
+        match '/celeb' => :celb
+        
+        match '/people' => :people
+    
+        match '/places' => :places
+    
+        match '/things' => :things
+        
+        match '/grapevine' => :grapevine
+    end
+    
     controller :pages do
         root :to => :home
         
@@ -34,8 +54,12 @@ Topik::Application.routes.draw do
         match '/terms' => :terms
         
         match '/privacy' => :privacy
+           
+        match '/entertainment', :to => :entertainment
         
-        match '/forum' => :forum
+        match '/events', :to => :events
+        
+        match '/news', :to => :news
     end
     
     controller :sessions do

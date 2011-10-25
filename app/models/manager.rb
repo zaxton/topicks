@@ -11,4 +11,12 @@ class Manager < ActiveRecord::Base
     belongs_to :storage
     
     has_attached_file :file
+    
+    def self.search(search)
+        if search
+            where('file_file_name LIKE ?', "%#{search}%")
+        else
+            scoped
+        end
+    end
 end

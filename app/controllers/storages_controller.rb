@@ -13,6 +13,6 @@ class StoragesController < ApplicationController
     def index
         @title = "#{current_user.username}'s Folders"
         @storage = Storage.new
-        @storages = current_user.storages.paginate(:page => params[:page])
+        @storages = current_user.storages.search(params[:search]).paginate(:page => params[:page])
     end
 end

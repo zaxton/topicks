@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019212652) do
+ActiveRecord::Schema.define(:version => 20111025062953) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -92,5 +92,13 @@ ActiveRecord::Schema.define(:version => 20111019212652) do
   end
 
   add_index "users", ["id"], :name => "user_index"
+
+  create_table "videos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "embed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
 
 end

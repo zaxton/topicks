@@ -1,6 +1,5 @@
 <%= render 'topics_list' %>
 
-
 <div class="popupPicture">
 	<a class="popupContactClose">[close]</a>
 
@@ -8,14 +7,14 @@
 		<br/><br/>
 		<div class="new_picture">
 			<div class="album_create">
-				<h2>Start A Convo About Events</h2>
+				<h2>Start A Convo About Places</h2>
 			<div class="new_album">
 				<center>
 				<div class="topic_form" title="New Topic">
-				<% form_for(@topic, @topic.category = "Events") do |f| %>
+				<% form_for(@topic, @topic.category = "#{@category}") do |f| %>
 					<%= f.hidden_field :category %>
 					<%= f.text_area :content %>
-					<%= f.submit "Post" %>
+					<%= f.submit "Post", :class => 'primary button' %>
 				<% end %>
 				</div>
 				</center>
@@ -28,6 +27,5 @@
 
 
 <!-- End Popup -->
-
 
 </div>

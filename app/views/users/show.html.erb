@@ -42,6 +42,9 @@
 				<li><%= link_to "Has commented on #{pluralize(@comments.count, "topic")}", '#' %></li>
 			</ul>
 		</div>
+		<div class="shared_stuff_link">
+			<%= link_to "My Shared Folders", uploads_path(@user) %>
+		</div>
 		<div class="follow_form">
 		<% unless current_user?(@user) %>	
 			  <div class="follow_form">

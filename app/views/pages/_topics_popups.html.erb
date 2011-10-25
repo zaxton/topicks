@@ -1,0 +1,69 @@
+<div class="link_ones_popup" title="Entertainment">
+	<ul>
+		<li><%= link_to "Movies", movies_path %></li>
+		<li><%= link_to "Games", games_path %></li>
+		<li><%= link_to "TV", tv_path %></li>
+	</ul>
+</div>
+<script>
+$.fx.speeds._default = 1000;
+$(function() {
+	$( ".link_ones_popup" ).dialog({
+		autoOpen: false,
+		modal: true,
+		height: 250,
+		width:400
+	});
+
+	$( "#link_one" ).click(function() {
+		$( ".link_ones_popup" ).dialog( "open" );
+		return false;
+	});
+});
+</script>
+<div class="link_twos_popup" title="News">
+	<ul>
+		<li><%= link_to "Sports", sports_path %></li>
+		<li><%= link_to "World", world_path %></li>
+		<li><%= link_to "Celebrity", celeb_path %></li>
+	</ul>
+</div>
+<script>
+$.fx.speeds._default = 1000;
+$(function() {
+	$( ".link_twos_popup" ).dialog({
+		autoOpen: false,
+		modal: true,
+		height: 250,
+		width:400
+	});
+
+	$( "#link_two" ).click(function() {
+		$( ".link_twos_popup" ).dialog( "open" );
+		return false;
+	});
+});
+</script>
+<div class="link_threes_popup" title="News">
+	<ul>
+		<li><%= link_to "People", people_path %></li>
+		<li><%= link_to "Places", places_path %></li>
+		<li><%= link_to "Things", things_path %></li>
+	</ul>
+</div>
+<script>
+$.fx.speeds._default = 1000;
+$(function() {
+	$( ".link_threes_popup" ).dialog({
+		autoOpen: false,
+		modal: true,
+		height: 250,
+		width:400
+	});
+
+	$( "#link_three" ).click(function() {
+		$( ".link_threes_popup" ).dialog( "open" );
+		return false;
+	});
+});
+</script>

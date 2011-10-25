@@ -4,28 +4,28 @@
 <div class="home_signed_in">
 	<h2><em>Welcome to your Dash...</em></h2>
 	<div class="topics_home_panel">
-		<a href="<%= grapevein_path %>">
-			<div class="bubble_one" title="Entertainment">
+		<a href="<%= grapevine_path %>">
+			<div class="bubble_one" title="Grape Vine">
 				<%= vine_art %>
-				<h2>The Grape Vein</h2>
+				<h2>The Grape Vine</h2>
 				<h3><em>Trend Anonymously</em></h3>
 			</div>
 		</a>
-		<a href="<%= entertainment_path %>">
+		<a href="#" id="link_one">
 			<div class="bubble_two" title="Entertainment">
 				<%= movie_art %>
 				<h2>Entertainment</h2>
 				<h3><em>View the Latest trends in Entertainment</em></h3>
 			</div>
 		</a>
-		<a href="<%= news_path %>">
+		<a href="#" id="link_two">
 			<div class="bubble_three" title="News">
 				<%= news_art %>
 				<h2>News</h2>
 				<h3><em>View the Latest trends in News</em></h3>
 			</div>
 		</a>
-		<a href="<%= events_path %>">
+		<a href="#" id="link_three">
 			<div class="bubble_four" title="Events">
 				<%= events_art %>
 				<h2>Events</h2>
@@ -61,4 +61,5 @@
 			});
 		});
 	</script>
+	<%= render 'topics_popups' %>
 </div>

@@ -19,35 +19,93 @@ class TopicsController < ApplicationController
         @topics = Topic.search(params[:search]).paginate(:per_page => 33, :page => params[:page])
     end
     
-    def grapevein
-        @title = "The Grape Vein"
+    def grapevine
+        @title = "The Grape Vine"
         @topic = Topic.new
-        @topics = Topic.where('category = ?', "Vein").all
-        @heading = "Welcome To The Grape Vein"
-        @tip = "Post Anything, Anonymously" 
+        @topics = Topic.where('category = ?', "Vine").all
+        @heading = "Welcome to the Grape Vine"
+        @tip = "Post Anything, Annoynimously"
+        @category = "Vine"
     end
     
-    def entertainment
-        @title = "Entertainment"
+    def movies
+        @title = "Movies"
         @topic = Topic.new
-        @topics = Topic.where('category = ?', "Entertainment").all
-        @heading = "Welcome To Topicks Entertainment"
-        @tip = "Post Anything You Feel Relates to Entertainment"
+        @topics = Topic.where('category = ?', "Movies").all
+        @heading = "Entertainment > Movies"
+        @tip = "Post Anything You Feel Relates to Movies"
+        @category = "Movies"
     end
     
-    def events
-        @title = "Events"
+    def games
+        @title = "Games"
         @topic = Topic.new
-        @topics = Topic.where('category = ?', "Events").all
-        @heading = "Welcome To Topicks Events"
-        @tip = "Post Anything You Feel Relates to Events"
+        @topics = Topic.where('category = ?', "Games").all
+        @heading = "Entertainment > Games"
+        @tip = "Post Anything You Feel Relates to Games"
+        @category = "Games"
     end
     
-    def news
-        @title = "News"
+    def tv
+        @title = "TV"
         @topic = Topic.new
-        @topics = Topic.where('category = ?', "News").all
-        @heading = "Welcome To Topicks News"
-        @tip = "Post Anything You Feel Relates to News"
+        @topics = Topic.where('category = ?', "TV").all
+        @heading = "Entertainment > TV"
+        @tip = "Post Anything You Feel Relates to Television"
+        @category = "TV"
+    end
+    
+    def sports
+        @title = "Sports"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "Sports").all
+        @heading = "News > Sports"
+        @tip = "Post Anything You Feel Relates to Sports"
+        @category = "Sports"
+    end
+    
+    def world
+        @title = "World"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "World").all
+        @heading = "News > World"
+        @tip = "Post Anything You Feel Relates to World News"
+        @category = "World"
+    end
+    
+    def celeb
+        @title = "Celebrity"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "Celeb").all
+        @heading = "News > Celebrity"
+        @tip = "Post Anything You Feel Relates to Celebrity News"
+        @category = "Celeb"
+    end
+    
+    def people
+        @title = "People"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "People").all
+        @heading = "Events > People"
+        @tip = "Post Anything You Feel Relates to People"
+        @category = "People"
+    end
+    
+    def places
+        @title = "Places"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "Places").all
+        @heading = "Events > Places"
+        @tip = "Talk About a Place"
+        @category = "Places"
+    end
+    
+    def things
+        @title = "Things"
+        @topic = Topic.new
+        @topics = Topic.where('category = ?', "Things").all
+        @heading = "Events > Things"
+        @tip = "Post General Events"
+        @category = "Things"
     end
 end

@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'swfobject.js', 'jquery.youtubepopup.min.js'%>
+<script type="text/javascript">
+       $(function () {
+           $("a.youtube").YouTubePopup({ autoplay: 0 });
+       });
+   </script>
+<% end %>
+<div class="index">
+	<% form_for(@upload) do |f| %>
+		<%= f.text_field :name, :placeholder => 'name' %>
+		<%= f.text_field :embed, :placeholder => 'code' %>
+		<%= f.submit "Save" %>
+	<% end %>
+	
+	<% unless @videos.empty? %>
+		<ul class="uploads">
+			<% @videos.each do |v| %>
+					<li><a class="youtube" href="#" rel="<%= v.embed %>" title="<%= @user.username %>'s Videos"><%= v.name %></a></li>
+				
+			<% end %>
+		</ul>	
+	<% end %>
+
+</div>

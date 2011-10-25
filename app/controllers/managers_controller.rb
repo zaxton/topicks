@@ -18,4 +18,10 @@ class ManagersController < ApplicationController
         @managers = @storage.managers.paginate(:page => params[:page])
         @manager = @storage.managers.new
     end
+    
+    def destroy
+        @manager = Manager.find(params[:id])
+        @manager.destroy
+        flash[:notice] = "Successfully deleted."
+    end
 end

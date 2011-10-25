@@ -47,6 +47,21 @@ class UsersController < ApplicationController
     end
     
     def destroy
+        user = User.find(params[:id])
+        	if current_user?(user)
+        		flash[:error] = "What kind of admin are you?"
+        	else
+        	    user.destroy
+        		flash[:success] = "User Deleted"
+        	end
+        redirect_to users_path
+    end
+    
+    def uploads
+        @user = User.find(params[:id])
+        @title = "#{@user.username}'s Shared Folders"
+        @upload = Video.new
+        @videos = @user.videos.all
     end
     
     private

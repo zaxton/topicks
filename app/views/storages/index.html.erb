@@ -1,6 +1,6 @@
 <div class="index">
 	<div class="new_storage_links">
-		<%= link_to "Create New", '#', :class => 'pill button'%>
+		<%= link_to "Create New Folder", '#', :class => 'pill button'%>
 	</div>
 	<div class="new_storage">
 		<%= form_for(@storage) do |f| %>
@@ -28,6 +28,24 @@
 		<h2>Welcome to File Manager</h2>
 	</div>
 	<div class="storage_index">
+	<div class="storage_search">
+		<%= form_tag storages_path, :method => 'get', :id => 'storage_search' do %>
+		  <p>
+			<div id="search_box">
+		    <%= text_field_tag :search, params[:search], :placeholder => 'Search Folders' %>
+			</div>
+		    <%= submit_tag "Search", :name => nil, :id => 'search_docs', :class => 'button' %>
+		  </p>
+		<% end %>
+	</div>
+	<script>
+			$(function() {
+			  $("#storage_search input").keyup(function() {
+			    $.get($("#storage_search").attr("action"), $("#storage_search").serialize(), null, "script");
+			    return false;
+			  });
+			});
+	</script>
 	<% unless @storages.empty? %>	
 			<ul>
 				<% @storages.each do |s| %>
@@ -39,5 +57,30 @@
 			</ul>
 			<%= will_paginate @storages %>
 	<% end %>
+	</div>
+	<div class="storage_stats">
+		<div class="storage_user">
+		<%= link_to (gravatar_for current_user, :size => 70), current_user %> 
+		<ul>
+			<li><%= link_to "#{current_user.username}", current_user %></li>
+			<li><%= link_to "Documents", '#' %></li>
+		</ul>
+		</div>
+		<h4>You are 37% full</h4>
+		<div id="progressbar"></div>
+		<script>
+			$(function() {
+				$( "#progressbar" ).progressbar({
+					value: 37
+				});
+			});
+			</script>
+			<div class="additional_links">
+				<ul>
+					<li><%= link_to "Upgrade Account", '#' %></li>
+					<li><%= link_to "Shared", uploads_path(current_user) %></li>
+					<li><%= link_to "Report An Issue", '#' %></li>
+				</ul>
+			</div>
 	</div>
 </div>

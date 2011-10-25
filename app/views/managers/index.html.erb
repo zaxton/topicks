@@ -1,3 +1,9 @@
+<% content_tag :head do %>
+	<%= stylesheet_link_tag 'vtip.css' %>
+<% end %>
+<% content_tag :scripts do %>
+	<%= javascript_include_tag 'vtip-min.js' %>
+<% end %>
 <div class="index">
 	<div class="new_storage">
 		<%= form_for([@storage, @manager], :html => { :multipart => true }) do |f| %>
@@ -5,16 +11,54 @@
 			<%= f.submit "Save" %>
 		<% end %>
 	</div>
+	<script>
+		$.fx.speeds._default = 1000;
+			$(function() {
+				$( ".new_storage" ).dialog({
+					autoOpen: false,
+					modal: true,
+					height:200,
+					width:500
+				});
+
+				$( "#add_man_link" ).click(function() {
+					$( ".new_storage" ).dialog( "open" );
+					return false;
+				});
+			});
+		</script>
 	<% unless @managers.empty? %>
 		<div class="managers_index">
+			<h2>Files From "<%= @storage.folder_name %>"</h2>
 			<ul>
 				<% @managers.each do |m| %>
 				<li>
-					<%= m.file_file_name %><br \>
-					<%= link_to "Download", m.file.url(:original, false) %>
+					<%= file %>
+					<div id="manager_name">
+					<%= m.file_file_name %><br \></div>
+					<%= link_to "Download", m.file.url(:original, false), :title => "Size: #{(m.file_file_size.to_f/1000.0)} KB", :class => 'vtip' %> <%= link_to "Delete", storage_managers_path, :method => :delete,
+													 :confirm => "Are you sure you wish to delete #{m.file_file_name}?",
+													 :title => m.file_file_name %>
 				</li>
 				<% end %>
 			</ul>
+			<%= will_paginate @managers %>
 		</div>
 	 <% end %>
+	<div class="managers_side_pan">
+		<div class="storage_search">
+			<%= form_tag storage_managers_path, :method => 'get', :id => 'storage_search' do %>
+			  <p>
+				<div id="search_box">
+			    <%= text_field_tag :search, params[:search], :placeholder => 'Search Files' %>
+				</div>
+			    <%= submit_tag "Search", :name => nil, :id => 'search_docs', :class => 'button' %>
+			  </p>
+			<% end %>
+		</div>
+		<ul>
+			<li><%= link_to "Manager Home", storages_path(current_user), :class => 'big primary button' %></li>
+			<li><%= link_to "Add To #{@storage.folder_name}", '#', :id => 'add_man_link', :class => 'big primary button' %></li>
+		</ul>
+	</div>
 </div>

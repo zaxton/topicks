@@ -62,6 +62,10 @@ module ApplicationHelper
         folder = image_tag("folder.png", :alt => "Folder", :size => "45x45")
     end
     
+    def file
+        file = image_tag("file.png", :alt => "File", :size => "30x30")
+    end
+    
     # Photos for bottom bar
     def home_pic
         home_pic = image_tag("home.png", :alt => "Home", :size => "20x20")
