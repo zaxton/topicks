@@ -115,4 +115,65 @@ $.fx.speeds._default = 1000;
 			});
 
 		});
-	
+		
+		
+		$(function(){
+				$("ul.uploads li").hover(function(){
+					$(this).css({
+						"background-color":"#F5F5F5",
+						"cursor":"pointer"
+					});
+				}, function(){
+					var resetCSS = {
+						"background-color":"",
+						"cursor":""
+					}
+					$(this).css(resetCSS);
+				});
+			});
+			
+			$(function(){
+					$(".link_ones_popup li").hover(function(){
+						$(this).css({
+							"background-color":"#F5F5F5",
+							"cursor":"pointer"
+						});
+					}, function(){
+						var resetCSS = {
+							"background-color":"",
+							"cursor":""
+						}
+						$(this).css(resetCSS);
+					});
+				});
+				
+					$(function(){
+							$(".link_twos_popup li").hover(function(){
+								$(this).css({
+									"background-color":"#F5F5F5",
+									"cursor":"pointer"
+								});
+							}, function(){
+								var resetCSS = {
+									"background-color":"",
+									"cursor":""
+								}
+								$(this).css(resetCSS);
+							});
+						});
+						
+							$(function(){
+									$(".link_threes_popup li").hover(function(){
+										$(this).css({
+											"background-color":"#F5F5F5",
+											"cursor":"pointer"
+										});
+									}, function(){
+										var resetCSS = {
+											"background-color":"",
+											"cursor":""
+										}
+										$(this).css(resetCSS);
+									});
+								});
+				

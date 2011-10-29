@@ -1,0 +1,22 @@
+<div class="index">
+	<div class="topics_index">
+		<ul>
+		<% @ptopics.each do |p| %>
+			<li>
+				<div class="gravatar">
+				<%= link_to (gravatar_for p.user, :size => 45), user_path(p.user) %>
+				</div>
+				<div class="topics_user">
+				<%= link_to "#{p.user.username}", user_path(p.user)  %><br \>
+				</div>
+				<div class="topics_content">
+				<%= p.content %><br \>
+				<div class="topics_time">
+				<%= link_to "Threads(0)", ptopic_path(p) %>
+				Posted <%= time_ago_in_words(p.created_at) %> ago.
+				</div>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+</div>

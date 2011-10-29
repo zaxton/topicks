@@ -9,7 +9,9 @@ Topik::Application.routes.draw do
     resources :relationships
     resources :password_resets
     resources :videos
-    
+    resources :ptopics
+    resources :tags
+     
     resources :topics do
         resources :comments
     end
@@ -19,6 +21,8 @@ Topik::Application.routes.draw do
     end
     
     match '/uploads/:id', :to => 'users#uploads', :as => 'uploads'
+    
+    get '/user_ptopics', :to => 'ptopics#user_ptopics'
     
     controller :topics do
         match '/movies', :to => :movies

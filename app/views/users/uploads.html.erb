@@ -5,21 +5,153 @@
            $("a.youtube").YouTubePopup({ autoplay: 0 });
        });
    </script>
+
+<style>
+	ul.tabs {
+		margin: 0;
+		padding: 0;
+		float: left;
+		list-style: none;
+		height: 32px; /*--Set height of tabs--*/
+		border-bottom: 1px solid #999;
+		border-left: 1px solid #999;
+		width: 100%;
+	}
+	ul.tabs li {
+		float: left;
+		margin: 0;
+		padding: 0;
+		height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+		line-height: 31px; /*--Vertically aligns the text within the tab--*/
+		border: 1px solid #999;
+		border-left: none;
+		margin-bottom: -1px; /*--Pull the list item down 1px--*/
+		overflow: hidden;
+		position: relative;
+		background: #e0e0e0;
+	}
+	ul.tabs li a {
+		text-decoration: none;
+		color: #000;
+		display: block;
+		font-size: 1.2em;
+		padding: 0 20px;
+		border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+		outline: none;
+	}
+	ul.tabs li a:hover {
+		background: #ccc;
+	}
+	html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+		background: #fff;
+		border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+	}
+
+	.tab_container {
+		border: 1px solid #999;
+		border-top: none;
+		overflow: hidden;
+		clear: both;
+		float: left; width: 100%;
+		background: #fff;
+	}
+	.tab_content {
+		padding: 20px;
+		font-size: 1.2em;
+	}
+
+	ul.sign_in li.form_field{
+		height: 5px;
+		margin-bottom: 0;
+		list-style: none;
+	}
+</style>
 <% end %>
 <div class="index">
-	<% form_for(@upload) do |f| %>
-		<%= f.text_field :name, :placeholder => 'name' %>
-		<%= f.text_field :embed, :placeholder => 'code' %>
-		<%= f.submit "Save" %>
-	<% end %>
 	
-	<% unless @videos.empty? %>
-		<ul class="uploads">
-			<% @videos.each do |v| %>
-					<li><a class="youtube" href="#" rel="<%= v.embed %>" title="<%= @user.username %>'s Videos"><%= v.name %></a></li>
-				
-			<% end %>
-		</ul>	
-	<% end %>
+<div class="shared_stuff">
+<ul class="tabs">
+    <li><a href="#tab1">Videos</a></li>
+    <li><a href="#tab2">Files</a></li>
+</ul>
+<div class="tab_container">
+	<div id="tab1" class="tab_content">
+		<div class="add_yvid">
+		<% if current_user?(@user)%>
+			<%= link_to "Add Video", '#', :id => "new_topic", :class => "primary button" %>
+		<% end %>
+		</div>
+		
+		<% unless @videos.empty? %>
+			<ul class="uploads">
+				<% @videos.each do |v| %>
+						<li>
+							<%= film_strip %>
+							<a class="youtube" href="#" rel="<%= v.embed %>" title="<%= @user.username %>'s Videos"><%= v.name %></a>
+						</li>
 
+				<% end %>
+			</ul>	
+		<% end %>
+		<%= will_paginate @videos %>
+	</div>
+	<div id="tab2" class="tab_content">
+
+	</div>
+
+</div>
+<script>
+
+$(document).ready(function() {
+
+	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active ID content
+		return false;
+	});
+
+});
+	
+</script>
+</div>
+
+
+<div class="popupPicture">
+	<a class="popupContactClose">[close]</a>
+
+	<p class="contactArea">
+		<br/><br/>
+		<div class="new_picture">
+			<div class="album_create">
+				<h2>Start A Convo About Celebrities</h2>
+			<div class="new_album">
+				<center>
+				<div class="topic_form" title="New Topic">
+					<% form_for(@upload) do |f| %>
+						<%= f.text_field :name, :placeholder => 'name' %>
+						<%= f.text_field :embed, :placeholder => 'code' %>
+						<%= f.submit "Save" %>
+					<% end %>
+				</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	</p>
+</div>
+<div class="backgroundPopup"></div>
+
+
+		
 </div>

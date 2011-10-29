@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025062953) do
+ActiveRecord::Schema.define(:version => 20111029142557) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -45,10 +45,33 @@ ActiveRecord::Schema.define(:version => 20111025062953) do
     t.integer  "storage_id"
   end
 
+  create_table "pcomments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "ptopic_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "expertise"
     t.string   "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ptopics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "people_id"
+    t.string   "content"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,12 +90,21 @@ ActiveRecord::Schema.define(:version => 20111025062953) do
     t.datetime "updated_at"
   end
 
+  create_table "tags", :force => true do |t|
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "ptopic_id"
+  end
+
   create_table "topics", :force => true do |t|
     t.string   "category"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "rating",     :limit => nil
   end
 
   add_index "topics", ["id"], :name => "topic_id"

@@ -6,19 +6,11 @@
 	</ul>
 </div>
 <script>
-$.fx.speeds._default = 1000;
-$(function() {
-	$( ".link_ones_popup" ).dialog({
-		autoOpen: false,
-		modal: true,
-		height: 250,
-		width:400
-	});
-
-	$( "#link_one" ).click(function() {
-		$( ".link_ones_popup" ).dialog( "open" );
-		return false;
-	});
+$(document).ready(function(){
+   $("#link_one").bind('click', function(){
+      $(".link_ones_popup").bPopup();
+      return false
+   });
 });
 </script>
 <div class="link_twos_popup" title="News">
@@ -29,19 +21,11 @@ $(function() {
 	</ul>
 </div>
 <script>
-$.fx.speeds._default = 1000;
-$(function() {
-	$( ".link_twos_popup" ).dialog({
-		autoOpen: false,
-		modal: true,
-		height: 250,
-		width:400
-	});
-
-	$( "#link_two" ).click(function() {
-		$( ".link_twos_popup" ).dialog( "open" );
-		return false;
-	});
+$(document).ready(function(){
+   $("#link_two").bind('click', function(){
+      $(".link_twos_popup").bPopup();
+      return false
+   });
 });
 </script>
 <div class="link_threes_popup" title="News">
@@ -52,18 +36,10 @@ $(function() {
 	</ul>
 </div>
 <script>
-$.fx.speeds._default = 1000;
-$(function() {
-	$( ".link_threes_popup" ).dialog({
-		autoOpen: false,
-		modal: true,
-		height: 250,
-		width:400
-	});
-
-	$( "#link_three" ).click(function() {
-		$( ".link_threes_popup" ).dialog( "open" );
-		return false;
-	});
+$(document).ready(function(){
+   $("#link_three").bind('click', function(){
+      $(".link_threes_popup").bPopup();
+      return false
+   });
 });
 </script>

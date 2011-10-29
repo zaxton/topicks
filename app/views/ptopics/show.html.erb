@@ -1,0 +1,60 @@
+<% content_for :scripts do %>
+	<%= javascript_include_tag 'jquery.tokeninput.js' %>
+<% end %>
+<div class="ptopics">
+
+	<div class="ptopics_container">
+	<h2>Conversation</h2>
+	<div class="topic_show_area">
+		<%= gravatar_for @ptopics.user, :size => 45 %>
+		<%= link_to "#{@ptopics.user.username}", user_path(@ptopics.user) %><br \>
+		<div class="tshowcomment"><%= @ptopics.content %></div><br \>
+		<div class="topic_show_time">
+		Posted <%= time_ago_in_words(@ptopics.created_at) %> ago.
+		</div>
+	</div>	
+	
+	
+<div class="tagged_section">
+	<div class="section_head">
+	<h4>Invite People</h4>
+	</div>
+	<div id="find_tag">
+	<%= form_for(@tag) do |f| %>
+		<%= f.text_field :tag_tokens %>
+		<%= f.hidden_field :tag_id %>
+		<div id="invite">
+		<%= f.submit "Invite", :class => 'button' %>
+		</div>
+	<% end %>
+	</div>
+	<h4>People Invited</h4><hr \>
+<div class="people_tagged">
+	<ul>
+		<% @tags.each do |t| %>
+			<% User.where('id =?', t.tag_id).each do |u| %>
+				<li>
+						<div class="gravatar">
+						<%= link_to (gravatar_for u, :size => 45), user_path(u) %>
+						</div>
+						<div class="topics_user">
+						<%= link_to "#{u.username}", user_path(u)  %>
+						</div>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+
+<script>
+	
+				$(function() {
+				  $("#tag_tag_tokens").tokenInput("/user_ptopics.json", {
+				    crossDomain: false,
+					hintText: "Invite People..."
+				});
+			});
+</script>
+</div>
+
+</div>

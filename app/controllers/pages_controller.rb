@@ -6,6 +6,7 @@ class PagesController < ApplicationController
         if signed_in?
             @title = "Topicks Home"
             @posts = current_user.topics.limit(10)
+            @ptopics = Ptopic.new
         end
     end
     

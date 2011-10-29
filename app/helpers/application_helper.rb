@@ -66,6 +66,10 @@ module ApplicationHelper
         file = image_tag("file.png", :alt => "File", :size => "30x30")
     end
     
+    def film_strip
+        film_strip = image_tag("film_strip.png", :alt => "Film", :size => "50x50")
+    end
+    
     # Photos for bottom bar
     def home_pic
         home_pic = image_tag("home.png", :alt => "Home", :size => "20x20")

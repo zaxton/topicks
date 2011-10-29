@@ -1,12 +1,12 @@
 <% content_for :scripts do %>
-		<%= javascript_include_tag "jquery.vticker.js" %>
+		<%= javascript_include_tag "jquery.vticker.js", "jquery.ui.stars.min.js" %>
 <% end %>
 <div class="topic_index">
 	<h2><%= @heading %> <%= link_to '#', :id => "what_is_this", :class => "tip_trigger" do %>
 		<%= "(What is this?)" %>
 		<span class="tip"><%= @tip %></span>
 	<% end %></h2>
-	<%= link_to "Start A New Topic", '#', :id => "new_topic", :class => "primary button" %>
+	<%= link_to "Start A New Topic", '#', :id => "new_topic", :class => "big primary button" %>
 	<div class="threads">
 		<hr \>
 	<ul>
@@ -24,6 +24,21 @@
 				<%= link_to "Threads(#{topic.comments.count})", topic_comments_path(topic) %>
 				Posted <%= time_ago_in_words(topic.created_at) %> ago.
 				</div>
+				<div class="stars-wrapper">
+					<%= form_for(topic) do |f| %>
+						<%= f.radio_button :rating, "1", :title => "Poor" %>
+						<%= f.radio_button :rating, "2", :title => "Low" %>
+						<%= f.radio_button :rating, "3", :title => "Average" %>
+						<%= f.radio_button :rating, "4", :title => "Better" %>
+						<%= f.radio_button :rating, "5", :title => "Excellent" %>
+						<%= f.submit "Rate" %>
+					<% end %>
+			    </div>
+			<script>
+			$(function(){
+				$(".stars-wrapper").stars();
+			});
+			</script>
 			</li>
 		<% end %>
 	</ul>

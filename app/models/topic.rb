@@ -4,7 +4,7 @@
 # t.string   "content"
 #
 class Topic < ActiveRecord::Base
-    attr_accessible :category, :content
+    attr_accessible :category, :content, :rating
     has_many :comments
     belongs_to :user
     

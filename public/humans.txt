@@ -1,0 +1,61 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+/////////////////////////
+  Architect: Zach Easley
+  Site: github.com/zaxton
+  Twitter: @zaxton
+  From: Springfield, MO
+//////////////////////////
+
+//////////////////////////
+  Mastermind: Dustin Harmon
+  Site: github.com/dh145911 
+//////////////////////////
+
+//////////////////////////////
+  Software Engineer Jon Vincent
+//////////////////////////////
+
+//////////////////////////
+  Stylist: Stephenie Hyde
+/////////////////////////
+  
+
+/* THANKS */
+  HTML5 Boilerplate(html5boilerplate.com)
+  
+  
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, Ruby on Rails
+  Software: Textmate, Photoshop, Indesign, Flash
+  
+
+                                    
+                               -o/-                       
+                               +oo//-                     
+                              :ooo+//:                    
+                             -ooooo///-                   
+                             /oooooo//:                   
+                            :ooooooo+//-                  
+                           -+oooooooo///-                 
+           -://////////////+oooooooooo++////////////::    
+            :+ooooooooooooooooooooooooooooooooooooo+:::-  
+              -/+ooooooooooooooooooooooooooooooo+/::////:-
+                -:+oooooooooooooooooooooooooooo/::///////:-
+                  --/+ooooooooooooooooooooo+::://////:-   
+                     -:+ooooooooooooooooo+:://////:--     
+                       /ooooooooooooooooo+//////:-        
+                      -ooooooooooooooooooo////-           
+                      /ooooooooo+oooooooooo//:            
+                     :ooooooo+/::/+oooooooo+//-           
+                    -oooooo/::///////+oooooo///-          
+                    /ooo+::://////:---:/+oooo//:          
+                   -o+/::///////:-      -:/+o+//-         
+                   :-:///////:-            -:/://         
+                     -////:-                 --//:        
+                       --                       -:        

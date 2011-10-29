@@ -1,0 +1,2 @@
+class PcommentsController < ApplicationController
+end

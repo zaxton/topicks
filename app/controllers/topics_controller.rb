@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
     
     def create
         @topic = current_user.topics.build(params[:topic])
+        @topic.rating = "0"
         if @topic.save
             flash[:success] = "Topic Created"
             redirect_to root_path
@@ -17,6 +18,16 @@ class TopicsController < ApplicationController
     def index
         @title = "All Topics"
         @topics = Topic.search(params[:search]).paginate(:per_page => 33, :page => params[:page])
+    end
+    
+    def update
+        @topic = Topic.find(params[:id])
+        if @topic.update_attributes(params[:topic])
+            flash[:success] = "Rated"
+            redirect_to root_path
+        else
+            flash.now = "Could Not Rate"
+        end
     end
     
     def grapevine

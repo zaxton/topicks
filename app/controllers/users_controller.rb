@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         @user = User.new(params[:user])
         if @user.save
             sign_in @user
+            flash[:success] = "Profile Created"
             redirect_to root_path
         else
             render 'pages/home'
@@ -61,9 +62,9 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @title = "#{@user.username}'s Shared Folders"
         @upload = Video.new
-        @videos = @user.videos.all
+        @videos = @user.videos.paginate(:page => params[:page])
     end
-    
+   
     private
     
     def correct_user
